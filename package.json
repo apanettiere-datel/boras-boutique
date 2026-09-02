@@ -1,0 +1,36 @@
+{
+  "name": "boras-boutique",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "opennextjs-cloudflare build",
+    "build:next": "next build",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "start": "next start",
+    "lint": "next lint",
+    "db:migrate:local": "wrangler d1 migrations apply boras-boutique-db --local",
+    "db:migrate": "wrangler d1 migrations apply boras-boutique-db --remote"
+  },
+  "browserslist": "defaults, not ie <= 11",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
+    "next": "^16.3.3",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "stripe": "^18.0.0",
+    "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@opennextjs/cloudflare": "^1.19.1",
+    "eslint": "^9.32.0",
+    "eslint-config-next": "^16.3.3",
+    "sharp": "0.34.3",
+    "wrangler": "^4.83.0"
+  },
+  "overrides": {
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3"
+  }
+}

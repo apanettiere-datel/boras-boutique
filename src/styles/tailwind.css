@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+
+/* Bora's Boutique design tokens, ported from the design system's tokens/ + tw.config.js
+   so utilities (bg-rose-500, tracking-eyebrow, ease-boutique...) match the DS components. */
+@theme {
+  --color-blush-50: #FEF9F7;
+  --color-blush-100: #FCF1ED;
+  --color-blush-200: #F8E4DD;
+  --color-blush-300: #F2D2C8;
+  --color-blush-400: #E9B8AC;
+
+  --color-rose-300: #DFA0A0;
+  --color-rose-400: #CE8484;
+  --color-rose-500: #B96A6C;
+  --color-rose-600: #9E5457;
+  --color-rose-700: #7F4245;
+  --color-rose-800: #613336;
+
+  --color-cream-50: #FDFAF4;
+  --color-cream-100: #FAF4E9;
+
+  --color-sand-200: #F0E5D6;
+  --color-sand-300: #E2D2BE;
+  --color-sand-400: #CDB89F;
+
+  --color-sage-100: #EAEEE6;
+  --color-sage-300: #C2CDB8;
+  --color-sage-500: #8C9C80;
+  --color-sage-700: #61705A;
+
+  --color-terracotta-100: #FBEAE0;
+  --color-terracotta-300: #E9B99B;
+  --color-terracotta-500: #C97B54;
+  --color-terracotta-700: #9A5535;
+
+  --color-ink-100: #DCCFC8;
+  --color-ink-300: #B3A099;
+  --color-ink-500: #86716A;
+  --color-ink-700: #5B4A45;
+  --color-ink-900: #3A2E2B;
+
+  --color-line-soft: #F1E2DB;
+  --color-line-medium: #E3D0C7;
+  --color-line-strong: #CDB4A9;
+
+  --font-display: var(--font-display-src), 'Iowan Old Style', Georgia, serif;
+  --font-body: var(--font-body-src), ui-rounded, 'Segoe UI', system-ui, sans-serif;
+
+  --tracking-eyebrow: 0.18em;
+
+  --radius-arch: 50% 50% 10px 10px / 22% 22% 10px 10px;
+
+  --shadow-xs: 0 1px 2px rgba(90, 58, 52, 0.06);
+  --shadow-soft: 0 2px 8px rgba(90, 58, 52, 0.07);
+  --shadow-lift: 0 8px 24px rgba(90, 58, 52, 0.09);
+  --shadow-drawer: 0 20px 48px rgba(90, 58, 52, 0.13);
+
+  --ease-boutique: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Semantic aliases from tokens/colors.css, for components that reference var() directly. */
+:root {
+  --surface-page: var(--color-blush-100);
+  --surface-raised: var(--color-cream-50);
+  --surface-card: #ffffff;
+  --surface-sunk: var(--color-blush-200);
+  --surface-inverse: var(--color-rose-700);
+  --surface-sage: var(--color-sage-100);
+
+  --text-heading: var(--color-ink-900);
+  --text-body: var(--color-ink-700);
+  --text-muted: var(--color-ink-500);
+  --text-subtle: var(--color-ink-300);
+  --text-on-rose: var(--color-blush-50);
+  --text-link: var(--color-rose-600);
+  --text-link-hover: var(--color-rose-800);
+
+  --action-primary: var(--color-rose-500);
+  --action-primary-hover: var(--color-rose-600);
+  --action-primary-press: var(--color-rose-700);
+  --action-secondary: var(--color-cream-100);
+  --action-disabled: var(--color-blush-300);
+
+  --border-default: var(--color-line-medium);
+  --border-subtle: var(--color-line-soft);
+  --border-focus: var(--color-rose-500);
+
+  --accent-sale: var(--color-terracotta-500);
+  --accent-success: var(--color-sage-700);
+  --accent-warning: var(--color-terracotta-700);
+
+  --wash-sun: linear-gradient(180deg, rgba(254, 249, 247, 0) 45%, rgba(185, 106, 108, 0.16) 100%);
+}
+
+@layer base {
+  body {
+    background-color: var(--surface-page);
+  }
+}

@@ -1,0 +1,40 @@
+import { Cormorant_Garamond, Nunito_Sans } from 'next/font/google'
+
+import '@/styles/tailwind.css'
+import { CartProvider } from '@/lib/cart'
+import { SiteShell } from '@/components/site/SiteShell'
+
+const display = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-display-src',
+  display: 'swap',
+})
+
+const body = Nunito_Sans({
+  subsets: ['latin'],
+  variable: '--font-body-src',
+  display: 'swap',
+})
+
+export const metadata = {
+  title: {
+    default: "Bora's Boutique",
+    template: "%s | Bora's Boutique",
+  },
+  description:
+    'Boho-chic pieces hand-picked in Naples, Florida. New drops weekly.',
+}
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
+      <body className="bg-blush-100 font-body text-ink-700 antialiased">
+        <CartProvider>
+          <SiteShell>{children}</SiteShell>
+        </CartProvider>
+      </body>
+    </html>
+  )
+}

@@ -1,0 +1,14 @@
+# Copy to .dev.vars (wrangler preview) and .env.local (next dev). Never commit the real files.
+
+# Stripe (test keys from dashboard.stripe.com/test/apikeys)
+STRIPE_SECRET_KEY=sk_test_xxx
+# From `stripe listen --forward-to localhost:3000/api/stripe-webhook` or the dashboard webhook endpoint
+STRIPE_WEBHOOK_SECRET=whsec_xxx
+
+# Canonical site URL used for Stripe redirect URLs in production
+SITE_URL=https://borasboutique.com
+
+# Resend (newsletter signup notifications, same pattern as dmd-website contact form)
+RESEND_API_KEY=
+NEWSLETTER_FROM_EMAIL=shop@borasboutique.com
+NEWSLETTER_TO_EMAIL=bora@borasboutique.com
