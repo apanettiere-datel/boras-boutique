@@ -2,7 +2,7 @@ import { Cormorant_Garamond, Nunito_Sans } from 'next/font/google'
 
 import '@/styles/tailwind.css'
 import { CartProvider } from '@/lib/cart'
-import { SiteShell } from '@/components/site/SiteShell'
+import { SavedProvider } from '@/lib/saved'
 
 const display = Cormorant_Garamond({
   subsets: ['latin'],
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body className="bg-blush-100 font-body text-ink-700 antialiased">
         <CartProvider>
-          <SiteShell>{children}</SiteShell>
+          <SavedProvider>{children}</SavedProvider>
         </CartProvider>
       </body>
     </html>

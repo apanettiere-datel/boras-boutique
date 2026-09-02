@@ -16,6 +16,7 @@ import {
   Icon,
 } from '@/components/ds'
 import { MAX_QTY, useCart } from '@/lib/cart'
+import { SearchDialog } from '@/components/site/SearchDialog'
 
 const FREE_AT = 75
 
@@ -23,7 +24,7 @@ const NAV_MAP = {
   home: '/',
   new: '/shop/new',
   sale: '/shop/sale',
-  account: '/',
+  saved: '/saved',
   collection: '/shop',
 }
 
@@ -67,6 +68,7 @@ function MobileNav({ open, onClose }) {
 export function SiteShell({ children }) {
   const router = useRouter()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
 
   const {
     items,
@@ -115,6 +117,7 @@ export function SiteShell({ children }) {
         featured={{ label: 'Spring Break Shop', href: '/shop/spring-break' }}
         shopLinks={SHOP_LINKS}
         onNav={handleNav}
+        onSearch={() => setSearchOpen(true)}
       />
 
       <main>{children}</main>
@@ -214,6 +217,7 @@ export function SiteShell({ children }) {
       </Drawer>
 
       <MobileNav open={menuOpen} onClose={() => setMenuOpen(false)} />
+      <SearchDialog open={searchOpen} onClose={() => setSearchOpen(false)} />
     </div>
   )
 }

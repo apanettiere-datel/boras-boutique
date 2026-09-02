@@ -7,11 +7,14 @@ import { Eyebrow } from "../core/Eyebrow.jsx";
 import { Button } from "../core/Button.jsx";
 import { IconButton } from "../core/IconButton.jsx";
 import { SwatchPicker } from "../forms/SwatchPicker.jsx";
+import { useSaved } from "@/lib/saved";
 
 export function ProductCard({ product, onQuickView, onAddToCart, className = "" }) {
   const { title, vendor, price, compareAt, badge, badgeTone, image, hoverImage, colors = [], soldOut, handle } = product;
   const href = handle ? `/product/${handle}` : "#";
   const [hover, setHover] = React.useState(false);
+  const { isSaved, toggleSaved } = useSaved();
+  const saved = isSaved(handle);
   const [swatch, setSwatch] = React.useState(colors[0] ? colors[0].name : null);
   const active = colors.find((c) => c.name === swatch);
   const base = (active && active.image) || image;
@@ -28,8 +31,15 @@ export function ProductCard({ product, onQuickView, onAddToCart, className = "" 
           className="absolute inset-0 h-full w-full object-cover transition-all duration-[600ms] ease-boutique"
           style={{ opacity: hover ? 1 : 0, transform: hover ? "scale(1)" : "scale(1.04)" }} />
         {badge ? <span className="absolute left-3 top-3"><Badge tone={badgeTone || "new"}>{badge}</Badge></span> : null}
-        <span className="absolute right-3 top-3 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-          <IconButton icon="heart" label="Save for later" tone="onImage" size="sm" />
+        <span className={["absolute right-3 top-3 transition-opacity duration-200 group-hover:opacity-100", saved ? "opacity-100" : "opacity-0"].join(" ")}>
+          <IconButton
+            icon="heart"
+            label={saved ? "Remove from saved" : "Save for later"}
+            tone="onImage"
+            size="sm"
+            className={saved ? "text-rose-600" : ""}
+            onClick={() => toggleSaved(handle)}
+          />
         </span>
         <div className="absolute inset-x-3 bottom-3 flex gap-2 translate-y-2 opacity-0 transition-all duration-200 ease-boutique group-hover:translate-y-0 group-hover:opacity-100">
           {soldOut ? (

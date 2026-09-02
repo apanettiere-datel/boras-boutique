@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+import { addNewsletterSubscriber } from '@/lib/store-data'
+
 const RESEND_SEND_URL = 'https://api.resend.com/emails'
 const RESEND_TIMEOUT_MS = 10000
 
@@ -36,6 +38,14 @@ export async function POST(request) {
         { ok: false, message: 'Please enter a valid email address.' },
         { status: 400 },
       )
+    }
+
+    // The list lives in D1 (INSERT OR IGNORE, so resubmitting is harmless);
+    // the Resend email below is just a heads-up to the shop inbox.
+    try {
+      await addNewsletterSubscriber(email)
+    } catch (error) {
+      console.error('Subscriber insert failed', error)
     }
 
     const apiKey = process.env.RESEND_API_KEY

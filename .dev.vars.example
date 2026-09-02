@@ -8,6 +8,9 @@ STRIPE_WEBHOOK_SECRET=whsec_xxx
 # Canonical site URL used for Stripe redirect URLs in production
 SITE_URL=https://borasboutique.com
 
+# Admin dashboard sign-in (set in prod with: npx wrangler secret put ADMIN_PASSWORD)
+ADMIN_PASSWORD=
+
 # Resend (newsletter signup notifications, same pattern as dmd-website contact form)
 RESEND_API_KEY=
 NEWSLETTER_FROM_EMAIL=shop@borasboutique.com

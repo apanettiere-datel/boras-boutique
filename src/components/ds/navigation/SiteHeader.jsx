@@ -29,7 +29,7 @@ export function SiteHeader({ featured = { label: "Spring Break Shop", href: "#" 
 
         <div className="flex flex-1 items-center justify-end gap-1">
           <IconButton icon="search" label="Search" size="sm" onClick={onSearch} />
-          <IconButton icon="user" label="Account" size="sm" className="hidden sm:inline-flex" onClick={() => onNav && onNav("account")} />
+          <IconButton icon="heart" label="Saved pieces" size="sm" className="hidden sm:inline-flex" onClick={() => onNav && onNav("saved")} />
           <IconButton icon="bag" label="Cart" size="sm" badge={cartCount} onClick={onCart} />
         </div>
       </div>

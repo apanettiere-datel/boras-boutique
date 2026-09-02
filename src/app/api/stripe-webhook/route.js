@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
-import { applyOrderDecrement } from '@/lib/inventory'
+import { finalizeOrder } from '@/lib/inventory'
 import { decodeOrderItems } from '@/lib/order-metadata'
 
 export async function POST(request) {
@@ -44,7 +44,10 @@ export async function POST(request) {
     let inventoryResult = 'no-items'
     if (items.length > 0) {
       try {
-        inventoryResult = await applyOrderDecrement(session.id, items)
+        inventoryResult = await finalizeOrder(session.id, items, {
+          email: session.customer_details?.email,
+          amountTotal: session.amount_total,
+        })
       } catch (error) {
         // Never 500 back to Stripe for an inventory hiccup; the order is paid.
         console.error('Inventory decrement failed', error)

@@ -18,6 +18,10 @@ API routes run on the Worker:
 - `POST /api/stripe-webhook` verifies the Stripe signature and logs completed orders. This is the hook point for future fulfillment work (email, inventory, D1).
 - `POST /api/newsletter` validates the address (with a honeypot field) and notifies the shop inbox via Resend, same pattern as the dmd-website contact form.
 
+## Admin dashboard
+
+`/admin` is a back-office (overview, inventory editing, orders, product list) protected by a shared password: set it with `npx wrangler secret put ADMIN_PASSWORD` (or `ADMIN_PASSWORD` in `.dev.vars` / `.env.local` locally). Sessions are HMAC-signed HttpOnly cookies, 7 days. Orders and newsletter subscribers are recorded in D1 by the webhook and newsletter routes (`migrations/0002_orders_and_subscribers.sql`).
+
 ## Inventory
 
 Live stock lives in Cloudflare D1 (`inventory` table, seeded from the catalog by `migrations/0001_inventory.sql`). The product page shows real availability ("Only N left" / sold out), `/api/checkout` rejects orders that exceed current stock, and the Stripe webhook decrements stock exactly once per completed session (`processed_orders` is the idempotency guard, committed atomically with the decrements).
