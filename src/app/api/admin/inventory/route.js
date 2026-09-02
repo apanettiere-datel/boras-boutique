@@ -32,11 +32,20 @@ export async function POST(request) {
       )
     }
 
-    const updated = await setStock(handle, stock)
-    if (!updated) {
+    const result = await setStock(handle, stock)
+    if (result === 'no-db') {
       return NextResponse.json(
         { ok: false, message: 'No database is connected yet.' },
         { status: 503 },
+      )
+    }
+    if (result === 'missing-row') {
+      return NextResponse.json(
+        {
+          ok: false,
+          message: `No inventory row for ${handle}. Add it with a seed migration.`,
+        },
+        { status: 409 },
       )
     }
     return NextResponse.json({ ok: true, handle, stock })

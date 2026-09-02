@@ -1,24 +1,8 @@
 import { Badge } from '@/components/ds'
 import { products } from '@/data/catalog'
+import { TH, TD } from '@/components/admin/ui'
 
 export const metadata = { title: 'Products - Admin' }
-
-const TH = ({ children, className = '' }) => (
-  <th
-    className={[
-      'px-4 py-3 text-left font-body text-[10.5px] font-bold uppercase tracking-eyebrow text-ink-500',
-      className,
-    ].join(' ')}
-  >
-    {children}
-  </th>
-)
-
-const TD = ({ children, className = '' }) => (
-  <td className={['px-4 py-3 font-body text-[13.5px] text-ink-700', className].join(' ')}>
-    {children}
-  </td>
-)
 
 export default function ProductsPage() {
   return (

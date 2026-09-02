@@ -1,21 +1,9 @@
 import { Card, EmptyState } from '@/components/ds'
 import { getOrders } from '@/lib/store-data'
+import { formatCents } from '@/lib/money'
+import { SetupCard, TH, TD } from '@/components/admin/ui'
 
 export const metadata = { title: 'Orders - Admin' }
-
-function SetupCard() {
-  return (
-    <Card tone="cream" padding="lg" className="max-w-lg mx-auto mt-8">
-      <p className="font-body font-bold text-ink-900 mb-2">Database not connected</p>
-      <p className="font-body text-[14px] text-ink-500 mb-4">
-        The D1 database is not connected yet. Run these commands to set it up:
-      </p>
-      <pre className="bg-ink-900 text-cream-50 rounded-md p-4 font-mono text-[12px] overflow-x-auto leading-relaxed whitespace-pre">
-        {`npx wrangler d1 create boras-boutique-db\nnpm run db:migrate`}
-      </pre>
-    </Card>
-  )
-}
 
 function formatDate(ts) {
   if (!ts) return '-'
@@ -31,23 +19,6 @@ function lineSummary(lines) {
     .map((l) => `${l.title} x${l.qty}`)
     .join(', ')
 }
-
-const TH = ({ children, className = '' }) => (
-  <th
-    className={[
-      'px-4 py-3 text-left font-body text-[10.5px] font-bold uppercase tracking-eyebrow text-ink-500',
-      className,
-    ].join(' ')}
-  >
-    {children}
-  </th>
-)
-
-const TD = ({ children, className = '' }) => (
-  <td className={['px-4 py-3 font-body text-[13.5px] text-ink-700', className].join(' ')}>
-    {children}
-  </td>
-)
 
 export default async function OrdersPage() {
   const orders = await getOrders(100)
@@ -91,7 +62,7 @@ export default async function OrdersPage() {
                     </TD>
                     <TD className="whitespace-nowrap font-semibold text-ink-900">
                       {order.amount_total != null
-                        ? `$${(order.amount_total / 100).toFixed(2)}`
+                        ? formatCents(order.amount_total)
                         : '-'}
                     </TD>
                     <TD className="text-[12px] text-ink-400 whitespace-nowrap">

@@ -1,34 +1,10 @@
 import Link from 'next/link'
+import { formatCents } from '@/lib/money'
 import { Card, Badge } from '@/components/ds'
 import { getAdminStats, getInventoryRows } from '@/lib/store-data'
+import { SetupCard, TH, TD } from '@/components/admin/ui'
 
 export const metadata = { title: 'Overview - Admin' }
-
-function SetupCard() {
-  return (
-    <Card tone="cream" padding="lg" className="max-w-lg mx-auto mt-8">
-      <p className="font-body font-bold text-ink-900 mb-2">Database not connected</p>
-      <p className="font-body text-[14px] text-ink-500 mb-4">
-        The D1 database is not connected yet. Run these commands to set it up:
-      </p>
-      <pre className="bg-ink-900 text-cream-50 rounded-md p-4 font-mono text-[12px] overflow-x-auto leading-relaxed whitespace-pre">
-        {`npx wrangler d1 create boras-boutique-db\nnpm run db:migrate`}
-      </pre>
-    </Card>
-  )
-}
-
-const TH = ({ children }) => (
-  <th className="px-4 py-3 text-left font-body text-[10.5px] font-bold uppercase tracking-eyebrow text-ink-500">
-    {children}
-  </th>
-)
-
-const TD = ({ children, className = '' }) => (
-  <td className={['px-4 py-3 font-body text-[13.5px] text-ink-700', className].join(' ')}>
-    {children}
-  </td>
-)
 
 export default async function OverviewPage() {
   const [stats, inventoryRows] = await Promise.all([
@@ -64,7 +40,7 @@ export default async function OverviewPage() {
                   Revenue
                 </p>
                 <p className="font-display text-[32px] font-medium leading-none text-ink-900">
-                  ${(stats.revenueCents / 100).toFixed(2)}
+                  {formatCents(stats.revenueCents)}
                 </p>
               </Card>
               <Card tone="paper" padding="md" className="flex flex-col gap-1.5">

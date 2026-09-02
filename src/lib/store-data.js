@@ -24,14 +24,16 @@ export async function getInventoryRows() {
   }))
 }
 
+// Returns 'updated', 'no-db', or 'missing-row' (product exists in the catalog
+// but has no inventory row, e.g. added without a seed migration).
 export async function setStock(handle, stock) {
   const db = await getDb()
-  if (!db) return false
+  if (!db) return 'no-db'
   const result = await db
     .prepare('UPDATE inventory SET stock = ? WHERE handle = ?')
     .bind(stock, handle)
     .run()
-  return result.meta.changes > 0
+  return result.meta.changes > 0 ? 'updated' : 'missing-row'
 }
 
 export async function getOrders(limit = 50) {

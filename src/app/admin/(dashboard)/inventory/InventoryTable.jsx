@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useCallback } from 'react'
 import { Input, Button, Badge } from '@/components/ds'
+import { TH, TD } from '@/components/admin/ui'
 
 // per-row save state: 'idle' | 'saving' | 'saved' | 'error'
 function useRowState(initialRows) {
@@ -63,23 +64,6 @@ function useRowState(initialRows) {
 
   return { rows, setInput, save }
 }
-
-const TH = ({ children, className = '' }) => (
-  <th
-    className={[
-      'px-4 py-3 text-left font-body text-[10.5px] font-bold uppercase tracking-eyebrow text-ink-500',
-      className,
-    ].join(' ')}
-  >
-    {children}
-  </th>
-)
-
-const TD = ({ children, className = '' }) => (
-  <td className={['px-4 py-3 font-body text-[13.5px] text-ink-700', className].join(' ')}>
-    {children}
-  </td>
-)
 
 export function InventoryTable({ initialRows }) {
   const { rows, setInput, save } = useRowState(initialRows)

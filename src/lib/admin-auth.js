@@ -25,6 +25,17 @@ function toHex(buffer) {
     .join('')
 }
 
+function fromHex(hex) {
+  if (typeof hex !== 'string' || hex.length % 2 !== 0 || /[^0-9a-f]/.test(hex)) {
+    return null
+  }
+  const bytes = new Uint8Array(hex.length / 2)
+  for (let i = 0; i < bytes.length; i++) {
+    bytes[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16)
+  }
+  return bytes
+}
+
 export function isAdminConfigured() {
   return Boolean(process.env.ADMIN_PASSWORD)
 }
@@ -63,8 +74,8 @@ export async function isAdminSession(cookieStore) {
   const expiry = raw.slice(0, at)
   const mac = raw.slice(at + 1)
   if (!/^\d+$/.test(expiry) || Number(expiry) < Date.now()) return false
-  const expected = toHex(
-    await crypto.subtle.sign('HMAC', key, encoder.encode(expiry)),
-  )
-  return mac === expected
+  const macBytes = fromHex(mac)
+  if (!macBytes) return false
+  // subtle.verify is constant-time; never string-compare an attacker-supplied MAC
+  return crypto.subtle.verify('HMAC', key, macBytes, encoder.encode(expiry))
 }
