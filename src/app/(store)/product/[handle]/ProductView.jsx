@@ -15,6 +15,7 @@ import {
   ProductCard,
   Icon,
   BotanicalDivider,
+  Dialog,
 } from '@/components/ds'
 import { useCart } from '@/lib/cart'
 
@@ -70,6 +71,7 @@ export function ProductView({ product, stock, related }) {
   const [color, setColor] = useState(product.colors[0]?.name)
   const [size, setSize] = useState(null)
   const [qty, setQty] = useState(1)
+  const [sizeGuideOpen, setSizeGuideOpen] = useState(false)
 
   const soldOut = stock <= 0
   const lowStock = !soldOut && stock < 8
@@ -140,7 +142,11 @@ export function ProductView({ product, stock, related }) {
               <p className="font-body text-[11px] font-bold uppercase tracking-eyebrow text-ink-500">
                 Size
               </p>
-              <button className="cursor-pointer font-body text-[12.5px] text-rose-600 underline underline-offset-4 decoration-rose-300 hover:text-rose-800">
+              <button
+                type="button"
+                onClick={() => setSizeGuideOpen(true)}
+                className="cursor-pointer font-body text-[12.5px] text-rose-600 underline underline-offset-4 decoration-rose-300 hover:text-rose-800"
+              >
                 Sizing guide
               </button>
             </div>
@@ -220,6 +226,49 @@ export function ProductView({ product, stock, related }) {
           </div>
         </>
       ) : null}
+
+      <Dialog
+        open={sizeGuideOpen}
+        onClose={() => setSizeGuideOpen(false)}
+        title="Sizing guide"
+        size="sm"
+      >
+        <div className="p-6">
+          <h3 className="font-display text-[22px] text-ink-900">Sizing guide</h3>
+          <p className="mt-2 font-body text-[13.5px] leading-[1.65] text-ink-700">
+            Measurements are in inches, taken flat. Between sizes? Size down for
+            a closer fit, up for an easier one.
+          </p>
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full border-collapse font-body text-[13px] text-ink-700">
+              <thead>
+                <tr className="border-b border-line-medium">
+                  <th className="py-2 pr-4 text-left font-bold uppercase tracking-eyebrow text-[10.5px] text-ink-500">Size</th>
+                  <th className="py-2 pr-4 text-left font-bold uppercase tracking-eyebrow text-[10.5px] text-ink-500">Bust</th>
+                  <th className="py-2 pr-4 text-left font-bold uppercase tracking-eyebrow text-[10.5px] text-ink-500">Waist</th>
+                  <th className="py-2 text-left font-bold uppercase tracking-eyebrow text-[10.5px] text-ink-500">Hip</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['XS', '31-32', '24-25', '34-35'],
+                  ['S', '33-34', '26-27', '36-37'],
+                  ['M', '35-36', '28-29', '38-39'],
+                  ['L', '37-39', '30-32', '40-42'],
+                  ['XL', '40-42', '33-35', '43-45'],
+                ].map(([s, bust, waist, hip]) => (
+                  <tr key={s} className="border-b border-line-soft">
+                    <td className="py-2 pr-4 font-semibold text-ink-900">{s}</td>
+                    <td className="py-2 pr-4">{bust}</td>
+                    <td className="py-2 pr-4">{waist}</td>
+                    <td className="py-2">{hip}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </Dialog>
     </div>
   )
 }

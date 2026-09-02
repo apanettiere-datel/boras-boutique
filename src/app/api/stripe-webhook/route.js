@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
+import { sendOpsAlert } from '@/lib/alerts'
 import { finalizeOrder } from '@/lib/inventory'
 import { decodeOrderItems } from '@/lib/order-metadata'
 
@@ -52,6 +53,10 @@ export async function POST(request) {
         // Never 500 back to Stripe for an inventory hiccup; the order is paid.
         console.error('Inventory decrement failed', error)
         inventoryResult = 'error'
+        await sendOpsAlert(
+          'Order recorded in Stripe but NOT in the shop database',
+          `Session ${session.id} paid (${session.amount_total} cents, ${session.customer_details?.email || 'no email'}) but the inventory/order write failed: ${error?.message}. Check the orders table and stock levels by hand.`,
+        )
       }
     }
     console.info('Order completed', {

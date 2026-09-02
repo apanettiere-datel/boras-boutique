@@ -63,6 +63,7 @@ export async function POST(request) {
         quantity: qty,
         price_data: {
           currency: 'usd',
+          tax_behavior: 'exclusive',
           // Prices come from the server-side catalog, never from the client;
           // integer dollars * 100 stays exact.
           unit_amount: product.price * 100,
@@ -127,6 +128,9 @@ export async function POST(request) {
       metadata: encodeOrderItems(
         items.map((i) => ({ handle: i.handle, qty: Number(i.qty) })),
       ),
+      // Requires Stripe Tax enabled in the dashboard (see README)
+      automatic_tax: { enabled: true },
+      allow_promotion_codes: true,
       shipping_address_collection: { allowed_countries: ['US'] },
       shipping_options: [
         {
@@ -134,6 +138,7 @@ export async function POST(request) {
             type: 'fixed_amount',
             display_name: shippingCents === 0 ? 'Free shipping' : 'Standard shipping',
             fixed_amount: { amount: shippingCents, currency: 'usd' },
+            tax_behavior: 'exclusive',
           },
         },
       ],

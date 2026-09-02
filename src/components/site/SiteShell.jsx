@@ -102,6 +102,12 @@ export function SiteShell({ children }) {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-cream-50 focus:px-5 focus:py-3 focus:font-body focus:text-[13px] focus:font-bold focus:uppercase focus:tracking-eyebrow focus:text-ink-900 focus:shadow-lift"
+      >
+        Skip to content
+      </a>
       <AnnouncementBar
         messages={[
           'Free shipping on orders over $75',
@@ -120,7 +126,7 @@ export function SiteShell({ children }) {
         onSearch={() => setSearchOpen(true)}
       />
 
-      <main>{children}</main>
+      <main id="main">{children}</main>
 
       <SiteFooter />
 
@@ -140,7 +146,8 @@ export function SiteShell({ children }) {
                 <Price price={subtotal} size="lg" />
               </div>
               <p className="font-body text-[12px] text-ink-500">
-                Shipping and taxes calculated at checkout.
+                Taxes calculated at checkout. Ships from Naples within 1 to 2
+                business days.
               </p>
               <Button
                 variant="primary"

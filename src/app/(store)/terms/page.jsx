@@ -52,7 +52,7 @@ export default function TermsPage() {
         <section className="flex flex-col gap-3">
           <h2 className="font-display text-[22px] text-ink-900">Shipping</h2>
           <p className="font-body text-[15px] leading-[1.65] text-ink-700">
-            We ship within the United States only. Shipping times and costs are shown at checkout. We are not responsible for carrier delays once a package leaves our shop.
+            We ship within the United States only. Orders leave our shop within 1 to 2 business days of your purchase, and shipping costs are shown at checkout. We are not responsible for carrier delays once a package leaves our shop.
           </p>
         </section>
 

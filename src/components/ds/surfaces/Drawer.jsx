@@ -1,8 +1,10 @@
 'use client'
 import React from "react";
 import { IconButton } from "../core/IconButton.jsx";
+import { useFocusTrap } from "./useFocusTrap.js";
 
 export function Drawer({ open, onClose, title, side = "right", width = 420, footer, className = "", children }) {
+  const panelRef = useFocusTrap(open);
   React.useEffect(() => {
     const h = (e) => e.key === "Escape" && onClose && onClose();
     window.addEventListener("keydown", h);
@@ -12,7 +14,7 @@ export function Drawer({ open, onClose, title, side = "right", width = 420, foot
     <div className={["absolute inset-0 z-50", open ? "" : "pointer-events-none"].join(" ")} aria-hidden={!open}>
       <div onClick={onClose}
         className={["absolute inset-0 bg-ink-900/35 backdrop-blur-[2px] transition-opacity duration-300 ease-boutique", open ? "opacity-100" : "opacity-0"].join(" ")} />
-      <aside role="dialog" aria-modal="true" aria-label={title}
+      <aside role="dialog" aria-modal="true" aria-label={title} ref={panelRef} tabIndex={-1}
         style={{ width, maxWidth: "100%", transform: open ? "translateX(0)" : `translateX(${side === "right" ? "" : "-"}102%)` }}
         className={["absolute top-0 bottom-0 flex flex-col bg-blush-50 shadow-drawer transition-transform duration-[420ms]",
           side === "right" ? "right-0" : "left-0", className].join(" ")}

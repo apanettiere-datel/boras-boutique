@@ -111,7 +111,8 @@ export default function CartPage() {
               </div>
             </dl>
             <p className="pt-3 font-body text-[12px] text-ink-500">
-              Taxes calculated at checkout.
+              Taxes calculated at checkout. Orders ship from Naples within 1 to
+              2 business days.
             </p>
             <div className="flex items-baseline justify-between py-4">
               <span className="font-body text-[12px] font-bold uppercase tracking-eyebrow text-ink-900">

@@ -37,6 +37,8 @@ Without a DB binding everything degrades gracefully to the static catalog number
 
 Stripe Checkout (hosted payment page). The cart lives client-side (localStorage), checkout redirects to Stripe, and `/checkout/success` clears the bag. Orders are visible in the Stripe dashboard; no order database in v1.
 
+Checkout sessions request `automatic_tax`, so **Stripe Tax must be enabled in the Stripe dashboard** (and the shop registered with the Florida DOR) before going live, or session creation will fail. Also toggle on "Successful payments" under Customer Emails so buyers get receipts.
+
 Setup:
 
 1. Create a Stripe account for the shop and grab the secret key.
