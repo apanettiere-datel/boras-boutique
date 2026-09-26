@@ -11,7 +11,10 @@
     "start": "next start",
     "lint": "next lint",
     "db:migrate:local": "wrangler d1 migrations apply boras-boutique-db --local",
-    "db:migrate": "wrangler d1 migrations apply boras-boutique-db --remote"
+    "db:migrate": "wrangler d1 migrations apply boras-boutique-db --remote",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test \"tests/*.test.mjs\"",
+    "catalog": "node scripts/catalog.mjs",
+    "catalog:check": "node scripts/catalog.mjs --check"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {

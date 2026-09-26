@@ -1,0 +1,2921 @@
+[
+  {
+    "id": "p1",
+    "handle": "marigold-tiered-maxi",
+    "title": "Marigold Tiered Maxi",
+    "vendor": "Bora's House Label",
+    "collection": "Dresses",
+    "price": 98,
+    "sku": "BB-1000",
+    "image": "/images/products/marigold-tiered-maxi/blush.jpg",
+    "hoverImage": "/images/products/marigold-tiered-maxi/detail.jpg",
+    "colors": [
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/marigold-tiered-maxi/blush.jpg"
+      },
+      {
+        "name": "Sage",
+        "hex": "#C2CDB8",
+        "image": "/images/products/marigold-tiered-maxi/sage.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Blush",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "XS",
+        "color": "Sage",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Sage",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Sage",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Sage",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Sage",
+        "initialStock": 2
+      }
+    ],
+    "badge": "Just in",
+    "badgeTone": "new",
+    "tags": [
+      "dresses",
+      "new",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size."
+  },
+  {
+    "id": "p2",
+    "handle": "wren-smocked-midi",
+    "title": "Wren Smocked Midi",
+    "vendor": "Saltgrass Co.",
+    "collection": "Dresses",
+    "price": 88,
+    "compareAt": 128,
+    "sku": "BB-1001",
+    "image": "/images/products/wren-smocked-midi/cream.jpg",
+    "hoverImage": "/images/products/wren-smocked-midi/detail.jpg",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/wren-smocked-midi/cream.jpg"
+      },
+      {
+        "name": "Terra",
+        "hex": "#C97B54",
+        "image": "/images/products/wren-smocked-midi/terra.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "XS",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Terra",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Terra",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Terra",
+        "initialStock": 1
+      }
+    ],
+    "badge": "30% off",
+    "badgeTone": "sale",
+    "tags": [
+      "dresses",
+      "core",
+      "sale"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size."
+  },
+  {
+    "id": "p3",
+    "handle": "sanibel-floral-maxi",
+    "title": "Sanibel Floral Maxi",
+    "vendor": "Bora's House Label",
+    "collection": "Dresses",
+    "price": 114,
+    "sku": "BB-1002",
+    "image": "/images/products/sanibel-floral-maxi/rose.jpg",
+    "hoverImage": "/images/products/sanibel-floral-maxi/detail.jpg",
+    "colors": [
+      {
+        "name": "Rose",
+        "hex": "#CE8484",
+        "image": "/images/products/sanibel-floral-maxi/rose.jpg"
+      },
+      {
+        "name": "Sky",
+        "hex": "#C6D3DA",
+        "image": "/images/products/sanibel-floral-maxi/sky.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Rose",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Rose",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Rose",
+        "initialStock": 0
+      },
+      {
+        "size": "L",
+        "color": "Rose",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Rose",
+        "initialStock": 3
+      },
+      {
+        "size": "XS",
+        "color": "Sky",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Sky",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Sky",
+        "initialStock": 0
+      },
+      {
+        "size": "L",
+        "color": "Sky",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Sky",
+        "initialStock": 4
+      }
+    ],
+    "tags": [
+      "dresses",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size."
+  },
+  {
+    "id": "p4",
+    "handle": "juniper-cotton-slip",
+    "title": "Juniper Cotton Slip",
+    "vendor": "Dune & Dust",
+    "collection": "Dresses",
+    "price": 72,
+    "sku": "BB-1003",
+    "image": "/images/products/juniper-cotton-slip/ivory.jpg",
+    "hoverImage": "/images/products/juniper-cotton-slip/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/juniper-cotton-slip/ivory.jpg"
+      },
+      {
+        "name": "Sage",
+        "hex": "#C2CDB8",
+        "image": "/images/products/juniper-cotton-slip/sage.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "XS",
+        "color": "Sage",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Sage",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Sage",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Sage",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Sage",
+        "initialStock": 3
+      }
+    ],
+    "tags": [
+      "dresses",
+      "new",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size."
+  },
+  {
+    "id": "p5",
+    "handle": "naples-sunset-wrap-dress",
+    "title": "Naples Sunset Wrap Dress",
+    "vendor": "Bora's House Label",
+    "collection": "Dresses",
+    "price": 104,
+    "sku": "BB-1004",
+    "image": "/images/products/naples-sunset-wrap-dress/terra.jpg",
+    "hoverImage": "/images/products/naples-sunset-wrap-dress/detail.jpg",
+    "colors": [
+      {
+        "name": "Terra",
+        "hex": "#C97B54",
+        "image": "/images/products/naples-sunset-wrap-dress/terra.jpg"
+      },
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/naples-sunset-wrap-dress/blush.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Terra",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Terra",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "XS",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Blush",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Blush",
+        "initialStock": 2
+      }
+    ],
+    "tags": [
+      "dresses",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size."
+  },
+  {
+    "id": "p6",
+    "handle": "mangrove-eyelet-mini",
+    "title": "Mangrove Eyelet Mini",
+    "vendor": "Saltgrass Co.",
+    "collection": "Dresses",
+    "price": 68,
+    "sku": "BB-1005",
+    "image": "/images/products/mangrove-eyelet-mini/ivory.jpg",
+    "hoverImage": "/images/products/mangrove-eyelet-mini/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/mangrove-eyelet-mini/ivory.jpg"
+      },
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/mangrove-eyelet-mini/blush.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "XS",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Blush",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Blush",
+        "initialStock": 1
+      }
+    ],
+    "tags": [
+      "dresses",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size."
+  },
+  {
+    "id": "p7",
+    "handle": "pelican-bay-linen-maxi",
+    "title": "Pelican Bay Linen Maxi",
+    "vendor": "Palma Row",
+    "collection": "Dresses",
+    "price": 132,
+    "sku": "BB-1006",
+    "image": "/images/products/pelican-bay-linen-maxi/cream.jpg",
+    "hoverImage": "/images/products/pelican-bay-linen-maxi/detail.jpg",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/pelican-bay-linen-maxi/cream.jpg"
+      },
+      {
+        "name": "Olive",
+        "hex": "#8C9C80",
+        "image": "/images/products/pelican-bay-linen-maxi/olive.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 0
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "XS",
+        "color": "Olive",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Olive",
+        "initialStock": 0
+      },
+      {
+        "size": "M",
+        "color": "Olive",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Olive",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Olive",
+        "initialStock": 4
+      }
+    ],
+    "tags": [
+      "dresses",
+      "new",
+      "full-price",
+      "linen"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size.",
+    "fabricCare": "100% linen. Machine wash cold on gentle, hang to dry."
+  },
+  {
+    "id": "p8",
+    "handle": "gulfshore-tie-back-midi",
+    "title": "Gulfshore Tie-Back Midi",
+    "vendor": "Bora's House Label",
+    "collection": "Dresses",
+    "price": 94,
+    "compareAt": 124,
+    "sku": "BB-1007",
+    "image": "/images/products/gulfshore-tie-back-midi/rose.jpg",
+    "hoverImage": "/images/products/gulfshore-tie-back-midi/detail.jpg",
+    "colors": [
+      {
+        "name": "Rose",
+        "hex": "#CE8484",
+        "image": "/images/products/gulfshore-tie-back-midi/rose.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/gulfshore-tie-back-midi/cream.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Rose",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Rose",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Rose",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Rose",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Rose",
+        "initialStock": 2
+      },
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 3
+      }
+    ],
+    "badge": "Sale",
+    "badgeTone": "sale",
+    "tags": [
+      "dresses",
+      "core",
+      "sale"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed through the body with a defined waist. Runs true to size."
+  },
+  {
+    "id": "p9",
+    "handle": "poppy-embroidered-blouse",
+    "title": "Poppy Embroidered Blouse",
+    "vendor": "Bora's House Label",
+    "collection": "Tops",
+    "price": 58,
+    "sku": "BB-1008",
+    "image": "/images/products/poppy-embroidered-blouse/ivory.jpg",
+    "hoverImage": "/images/products/poppy-embroidered-blouse/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/poppy-embroidered-blouse/ivory.jpg"
+      },
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/poppy-embroidered-blouse/blush.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "XS",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Blush",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Blush",
+        "initialStock": 2
+      }
+    ],
+    "badge": "Just in",
+    "badgeTone": "new",
+    "tags": [
+      "tops",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Easy, relaxed fit. Runs true to size."
+  },
+  {
+    "id": "p10",
+    "handle": "clementine-smocked-top",
+    "title": "Clementine Smocked Top",
+    "vendor": "Saltgrass Co.",
+    "collection": "Tops",
+    "price": 48,
+    "compareAt": 78,
+    "sku": "BB-1009",
+    "image": "/images/products/clementine-smocked-top/cream.jpg",
+    "hoverImage": "/images/products/clementine-smocked-top/detail.jpg",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/clementine-smocked-top/cream.jpg"
+      },
+      {
+        "name": "Terra",
+        "hex": "#C97B54",
+        "image": "/images/products/clementine-smocked-top/terra.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "XS",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Terra",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Terra",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Terra",
+        "initialStock": 1
+      }
+    ],
+    "badge": "40% off",
+    "badgeTone": "sale",
+    "tags": [
+      "tops",
+      "new",
+      "sale"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Easy, relaxed fit. Runs true to size."
+  },
+  {
+    "id": "p11",
+    "handle": "fern-crochet-tank",
+    "title": "Fern Crochet Tank",
+    "vendor": "Dune & Dust",
+    "collection": "Tops",
+    "price": 44,
+    "sku": "BB-1010",
+    "image": "/images/products/fern-crochet-tank/sage.jpg",
+    "hoverImage": "/images/products/fern-crochet-tank/detail.jpg",
+    "colors": [
+      {
+        "name": "Sage",
+        "hex": "#C2CDB8",
+        "image": "/images/products/fern-crochet-tank/sage.jpg"
+      },
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/fern-crochet-tank/ivory.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Sage",
+        "initialStock": 0
+      },
+      {
+        "size": "S",
+        "color": "Sage",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Sage",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Sage",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Sage",
+        "initialStock": 3
+      },
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 0
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 4
+      }
+    ],
+    "tags": [
+      "tops",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Easy, relaxed fit. Runs true to size."
+  },
+  {
+    "id": "p12",
+    "handle": "bayshore-puff-sleeve-top",
+    "title": "Bayshore Puff-Sleeve Top",
+    "vendor": "Palma Row",
+    "collection": "Tops",
+    "price": 62,
+    "sku": "BB-1011",
+    "image": "/images/products/bayshore-puff-sleeve-top/blush.jpg",
+    "hoverImage": "/images/products/bayshore-puff-sleeve-top/detail.jpg",
+    "colors": [
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/bayshore-puff-sleeve-top/blush.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/bayshore-puff-sleeve-top/cream.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Blush",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 3
+      }
+    ],
+    "tags": [
+      "tops",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Easy, relaxed fit. Runs true to size."
+  },
+  {
+    "id": "p13",
+    "handle": "willow-linen-button-down",
+    "title": "Willow Linen Button-Down",
+    "vendor": "Bora's House Label",
+    "collection": "Tops",
+    "price": 66,
+    "sku": "BB-1012",
+    "image": "/images/products/willow-linen-button-down/ivory.jpg",
+    "hoverImage": "/images/products/willow-linen-button-down/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/willow-linen-button-down/ivory.jpg"
+      },
+      {
+        "name": "Sky",
+        "hex": "#C6D3DA",
+        "image": "/images/products/willow-linen-button-down/sky.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "XS",
+        "color": "Sky",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Sky",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Sky",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Sky",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Sky",
+        "initialStock": 2
+      }
+    ],
+    "tags": [
+      "tops",
+      "new",
+      "full-price",
+      "linen"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Easy, relaxed fit. Runs true to size.",
+    "fabricCare": "100% linen. Machine wash cold on gentle, hang to dry."
+  },
+  {
+    "id": "p14",
+    "handle": "coquina-ruffle-cami",
+    "title": "Coquina Ruffle Cami",
+    "vendor": "Saltgrass Co.",
+    "collection": "Tops",
+    "price": 38,
+    "sku": "BB-1013",
+    "image": "/images/products/coquina-ruffle-cami/rose.jpg",
+    "hoverImage": "/images/products/coquina-ruffle-cami/detail.jpg",
+    "colors": [
+      {
+        "name": "Rose",
+        "hex": "#CE8484",
+        "image": "/images/products/coquina-ruffle-cami/rose.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/coquina-ruffle-cami/cream.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Rose",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Rose",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Rose",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Rose",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Rose",
+        "initialStock": 4
+      },
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 1
+      }
+    ],
+    "tags": [
+      "tops",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Easy, relaxed fit. Runs true to size."
+  },
+  {
+    "id": "p15",
+    "handle": "sawgrass-tie-front-top",
+    "title": "Sawgrass Tie-Front Top",
+    "vendor": "Dune & Dust",
+    "collection": "Tops",
+    "price": 52,
+    "sku": "BB-1014",
+    "image": "/images/products/sawgrass-tie-front-top/terra.jpg",
+    "hoverImage": "/images/products/sawgrass-tie-front-top/detail.jpg",
+    "colors": [
+      {
+        "name": "Terra",
+        "hex": "#C97B54",
+        "image": "/images/products/sawgrass-tie-front-top/terra.jpg"
+      },
+      {
+        "name": "Sage",
+        "hex": "#C2CDB8",
+        "image": "/images/products/sawgrass-tie-front-top/sage.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Terra",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Terra",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Terra",
+        "initialStock": 0
+      },
+      {
+        "size": "XS",
+        "color": "Sage",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Sage",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Sage",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Sage",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Sage",
+        "initialStock": 0
+      }
+    ],
+    "tags": [
+      "tops",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Easy, relaxed fit. Runs true to size."
+  },
+  {
+    "id": "p16",
+    "handle": "everglade-wide-leg-linen-pant",
+    "title": "Everglade Wide-Leg Linen Pant",
+    "vendor": "Bora's House Label",
+    "collection": "Bottoms",
+    "price": 78,
+    "sku": "BB-1015",
+    "image": "/images/products/everglade-wide-leg-linen-pant/cream.jpg",
+    "hoverImage": "/images/products/everglade-wide-leg-linen-pant/detail.jpg",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/everglade-wide-leg-linen-pant/cream.jpg"
+      },
+      {
+        "name": "Olive",
+        "hex": "#8C9C80",
+        "image": "/images/products/everglade-wide-leg-linen-pant/olive.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "XS",
+        "color": "Olive",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Olive",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Olive",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Olive",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Olive",
+        "initialStock": 3
+      }
+    ],
+    "tags": [
+      "bottoms",
+      "new",
+      "full-price",
+      "linen"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "High rise with a relaxed leg. Runs true to size.",
+    "fabricCare": "100% linen. Machine wash cold on gentle, hang to dry."
+  },
+  {
+    "id": "p17",
+    "handle": "tideline-denim-short",
+    "title": "Tideline Denim Short",
+    "vendor": "Palma Row",
+    "collection": "Bottoms",
+    "price": 56,
+    "sku": "BB-1016",
+    "image": "/images/products/tideline-denim-short/sky.jpg",
+    "hoverImage": "/images/products/tideline-denim-short/detail.jpg",
+    "colors": [
+      {
+        "name": "Sky",
+        "hex": "#C6D3DA",
+        "image": "/images/products/tideline-denim-short/sky.jpg"
+      },
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/tideline-denim-short/ivory.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Sky",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Sky",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Sky",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Sky",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Sky",
+        "initialStock": 1
+      },
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 2
+      }
+    ],
+    "tags": [
+      "bottoms",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "High rise with a relaxed leg. Runs true to size."
+  },
+  {
+    "id": "p18",
+    "handle": "vanderbilt-tiered-skirt",
+    "title": "Vanderbilt Tiered Skirt",
+    "vendor": "Bora's House Label",
+    "collection": "Bottoms",
+    "price": 72,
+    "compareAt": 98,
+    "sku": "BB-1017",
+    "image": "/images/products/vanderbilt-tiered-skirt/blush.jpg",
+    "hoverImage": "/images/products/vanderbilt-tiered-skirt/detail.jpg",
+    "colors": [
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/vanderbilt-tiered-skirt/blush.jpg"
+      },
+      {
+        "name": "Sand",
+        "hex": "#E2D2BE",
+        "image": "/images/products/vanderbilt-tiered-skirt/sand.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Blush",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "XS",
+        "color": "Sand",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Sand",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Sand",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Sand",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Sand",
+        "initialStock": 1
+      }
+    ],
+    "badge": "Sale",
+    "badgeTone": "sale",
+    "tags": [
+      "bottoms",
+      "core",
+      "sale"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "High rise with a relaxed leg. Runs true to size."
+  },
+  {
+    "id": "p19",
+    "handle": "seagrape-linen-set",
+    "title": "Seagrape Linen Set",
+    "vendor": "Bora's House Label",
+    "collection": "Matching Sets",
+    "price": 128,
+    "sku": "BB-1018",
+    "image": "/images/products/seagrape-linen-set/sage.jpg",
+    "hoverImage": "/images/products/seagrape-linen-set/detail.jpg",
+    "colors": [
+      {
+        "name": "Sage",
+        "hex": "#C2CDB8",
+        "image": "/images/products/seagrape-linen-set/sage.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/seagrape-linen-set/cream.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Sage",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Sage",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Sage",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Sage",
+        "initialStock": 0
+      },
+      {
+        "size": "XL",
+        "color": "Sage",
+        "initialStock": 3
+      },
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 0
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 4
+      }
+    ],
+    "badge": "Just in",
+    "badgeTone": "new",
+    "tags": [
+      "matching sets",
+      "new",
+      "full-price",
+      "linen"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed fit, sold as a set. Runs true to size.",
+    "fabricCare": "100% linen. Machine wash cold on gentle, hang to dry."
+  },
+  {
+    "id": "p20",
+    "handle": "barefoot-gauze-set",
+    "title": "Barefoot Gauze Set",
+    "vendor": "Dune & Dust",
+    "collection": "Matching Sets",
+    "price": 112,
+    "sku": "BB-1019",
+    "image": "/images/products/barefoot-gauze-set/ivory.jpg",
+    "hoverImage": "/images/products/barefoot-gauze-set/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/barefoot-gauze-set/ivory.jpg"
+      },
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/barefoot-gauze-set/blush.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "XS",
+        "color": "Blush",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Blush",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Blush",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Blush",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Blush",
+        "initialStock": 3
+      }
+    ],
+    "tags": [
+      "matching sets",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed fit, sold as a set. Runs true to size."
+  },
+  {
+    "id": "p21",
+    "handle": "third-street-knit-set",
+    "title": "Third Street Knit Set",
+    "vendor": "Saltgrass Co.",
+    "collection": "Matching Sets",
+    "price": 96,
+    "compareAt": 140,
+    "sku": "BB-1020",
+    "image": "/images/products/third-street-knit-set/terra.jpg",
+    "hoverImage": "/images/products/third-street-knit-set/detail.jpg",
+    "colors": [
+      {
+        "name": "Terra",
+        "hex": "#C97B54",
+        "image": "/images/products/third-street-knit-set/terra.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/third-street-knit-set/cream.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Terra",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Terra",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 2
+      }
+    ],
+    "badge": "Sale",
+    "badgeTone": "sale",
+    "tags": [
+      "matching sets",
+      "core",
+      "sale"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed fit, sold as a set. Runs true to size."
+  },
+  {
+    "id": "p22",
+    "handle": "driftwood-cropped-cardigan",
+    "title": "Driftwood Cropped Cardigan",
+    "vendor": "Palma Row",
+    "collection": "Outerwear",
+    "price": 84,
+    "sku": "BB-1021",
+    "image": "/images/products/driftwood-cropped-cardigan/cream.jpg",
+    "hoverImage": "/images/products/driftwood-cropped-cardigan/detail.jpg",
+    "colors": [
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/driftwood-cropped-cardigan/cream.jpg"
+      },
+      {
+        "name": "Sand",
+        "hex": "#E2D2BE",
+        "image": "/images/products/driftwood-cropped-cardigan/sand.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "XS",
+        "color": "Sand",
+        "initialStock": 1
+      },
+      {
+        "size": "S",
+        "color": "Sand",
+        "initialStock": 4
+      },
+      {
+        "size": "M",
+        "color": "Sand",
+        "initialStock": 3
+      },
+      {
+        "size": "L",
+        "color": "Sand",
+        "initialStock": 2
+      },
+      {
+        "size": "XL",
+        "color": "Sand",
+        "initialStock": 1
+      }
+    ],
+    "tags": [
+      "outerwear",
+      "new",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed fit, made for layering. Size down for a closer fit."
+  },
+  {
+    "id": "p23",
+    "handle": "sunday-market-linen-jacket",
+    "title": "Sunday Market Linen Jacket",
+    "vendor": "Bora's House Label",
+    "collection": "Outerwear",
+    "price": 118,
+    "sku": "BB-1022",
+    "image": "/images/products/sunday-market-linen-jacket/ivory.jpg",
+    "hoverImage": "/images/products/sunday-market-linen-jacket/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/sunday-market-linen-jacket/ivory.jpg"
+      },
+      {
+        "name": "Olive",
+        "hex": "#8C9C80",
+        "image": "/images/products/sunday-market-linen-jacket/olive.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 0
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "XS",
+        "color": "Olive",
+        "initialStock": 4
+      },
+      {
+        "size": "S",
+        "color": "Olive",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Olive",
+        "initialStock": 0
+      },
+      {
+        "size": "L",
+        "color": "Olive",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Olive",
+        "initialStock": 4
+      }
+    ],
+    "tags": [
+      "outerwear",
+      "core",
+      "full-price",
+      "linen"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Relaxed fit, made for layering. Size down for a closer fit.",
+    "fabricCare": "100% linen. Machine wash cold on gentle, hang to dry."
+  },
+  {
+    "id": "p24",
+    "handle": "raffia-slide-sandal",
+    "title": "Raffia Slide Sandal",
+    "vendor": "Dune & Dust",
+    "collection": "Shoes",
+    "price": 68,
+    "sku": "BB-1023",
+    "image": "/images/products/raffia-slide-sandal/sand.jpg",
+    "hoverImage": "/images/products/raffia-slide-sandal/detail.jpg",
+    "colors": [
+      {
+        "name": "Sand",
+        "hex": "#E2D2BE",
+        "image": "/images/products/raffia-slide-sandal/sand.jpg"
+      },
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/raffia-slide-sandal/ivory.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "6"
+      },
+      {
+        "label": "7"
+      },
+      {
+        "label": "8"
+      },
+      {
+        "label": "9"
+      },
+      {
+        "label": "10"
+      }
+    ],
+    "variants": [
+      {
+        "size": "6",
+        "color": "Sand",
+        "initialStock": 2
+      },
+      {
+        "size": "7",
+        "color": "Sand",
+        "initialStock": 1
+      },
+      {
+        "size": "8",
+        "color": "Sand",
+        "initialStock": 4
+      },
+      {
+        "size": "9",
+        "color": "Sand",
+        "initialStock": 3
+      },
+      {
+        "size": "10",
+        "color": "Sand",
+        "initialStock": 2
+      },
+      {
+        "size": "6",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "7",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "8",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "9",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "10",
+        "color": "Ivory",
+        "initialStock": 3
+      }
+    ],
+    "tags": [
+      "shoes",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Whole sizes only. Between sizes, size up."
+  },
+  {
+    "id": "p25",
+    "handle": "espadrille-ankle-wrap",
+    "title": "Espadrille Ankle Wrap",
+    "vendor": "Palma Row",
+    "collection": "Shoes",
+    "price": 82,
+    "sku": "BB-1024",
+    "image": "/images/products/espadrille-ankle-wrap/terra.jpg",
+    "hoverImage": "/images/products/espadrille-ankle-wrap/detail.jpg",
+    "colors": [
+      {
+        "name": "Terra",
+        "hex": "#C97B54",
+        "image": "/images/products/espadrille-ankle-wrap/terra.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/espadrille-ankle-wrap/cream.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "6"
+      },
+      {
+        "label": "7"
+      },
+      {
+        "label": "8"
+      },
+      {
+        "label": "9"
+      },
+      {
+        "label": "10"
+      }
+    ],
+    "variants": [
+      {
+        "size": "6",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "7",
+        "color": "Terra",
+        "initialStock": 4
+      },
+      {
+        "size": "8",
+        "color": "Terra",
+        "initialStock": 3
+      },
+      {
+        "size": "9",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "10",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "6",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "7",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "8",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "9",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "10",
+        "color": "Cream",
+        "initialStock": 2
+      }
+    ],
+    "tags": [
+      "shoes",
+      "new",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Whole sizes only. Between sizes, size up."
+  },
+  {
+    "id": "p26",
+    "handle": "palmetto-raffia-tote",
+    "title": "Palmetto Raffia Tote",
+    "vendor": "Dune & Dust",
+    "collection": "Accessories",
+    "price": 64,
+    "sku": "BB-1025",
+    "image": "/images/products/palmetto-raffia-tote/sand.jpg",
+    "hoverImage": "/images/products/palmetto-raffia-tote/detail.jpg",
+    "colors": [
+      {
+        "name": "Sand",
+        "hex": "#E2D2BE",
+        "image": "/images/products/palmetto-raffia-tote/sand.jpg"
+      },
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/palmetto-raffia-tote/ivory.jpg"
+      }
+    ],
+    "sizes": [],
+    "variants": [
+      {
+        "size": "",
+        "color": "Sand",
+        "initialStock": 2
+      },
+      {
+        "size": "",
+        "color": "Ivory",
+        "initialStock": 5
+      }
+    ],
+    "tags": [
+      "accessories",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier."
+  },
+  {
+    "id": "p27",
+    "handle": "straw-wide-brim-hat",
+    "title": "Straw Wide-Brim Hat",
+    "vendor": "Dune & Dust",
+    "collection": "Accessories",
+    "price": 46,
+    "sku": "BB-1026",
+    "image": "/images/products/straw-wide-brim-hat/sand.jpg",
+    "hoverImage": "/images/products/straw-wide-brim-hat/detail.jpg",
+    "colors": [
+      {
+        "name": "Sand",
+        "hex": "#E2D2BE",
+        "image": "/images/products/straw-wide-brim-hat/sand.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/straw-wide-brim-hat/cream.jpg"
+      }
+    ],
+    "sizes": [],
+    "variants": [
+      {
+        "size": "",
+        "color": "Sand",
+        "initialStock": 3
+      },
+      {
+        "size": "",
+        "color": "Cream",
+        "initialStock": 6
+      }
+    ],
+    "tags": [
+      "accessories",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier."
+  },
+  {
+    "id": "p28",
+    "handle": "shellwork-layering-necklace",
+    "title": "Shellwork Layering Necklace",
+    "vendor": "Palma Row",
+    "collection": "Jewelry",
+    "price": 34,
+    "sku": "BB-1027",
+    "image": "/images/products/shellwork-layering-necklace/ivory.jpg",
+    "hoverImage": "/images/products/shellwork-layering-necklace/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/shellwork-layering-necklace/ivory.jpg"
+      },
+      {
+        "name": "Sand",
+        "hex": "#E2D2BE",
+        "image": "/images/products/shellwork-layering-necklace/sand.jpg"
+      }
+    ],
+    "sizes": [],
+    "variants": [
+      {
+        "size": "",
+        "color": "Ivory",
+        "initialStock": 4
+      },
+      {
+        "size": "",
+        "color": "Sand",
+        "initialStock": 2
+      }
+    ],
+    "badge": "Just in",
+    "badgeTone": "new",
+    "tags": [
+      "jewelry",
+      "new",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier."
+  },
+  {
+    "id": "p29",
+    "handle": "sunbeam-gold-hoop-trio",
+    "title": "Sunbeam Gold Hoop Trio",
+    "vendor": "Bora's House Label",
+    "collection": "Jewelry",
+    "price": 30,
+    "compareAt": 48,
+    "sku": "BB-1028",
+    "image": "/images/products/sunbeam-gold-hoop-trio/ivory.jpg",
+    "hoverImage": "/images/products/sunbeam-gold-hoop-trio/detail.jpg",
+    "colors": [
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/sunbeam-gold-hoop-trio/ivory.jpg"
+      },
+      {
+        "name": "Sand",
+        "hex": "#E2D2BE",
+        "image": "/images/products/sunbeam-gold-hoop-trio/sand.jpg"
+      }
+    ],
+    "sizes": [],
+    "variants": [
+      {
+        "size": "",
+        "color": "Ivory",
+        "initialStock": 5
+      },
+      {
+        "size": "",
+        "color": "Sand",
+        "initialStock": 3
+      }
+    ],
+    "badge": "Sale",
+    "badgeTone": "sale",
+    "tags": [
+      "jewelry",
+      "core",
+      "sale"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier."
+  },
+  {
+    "id": "p30",
+    "handle": "tidepool-beaded-anklet-set",
+    "title": "Tidepool Beaded Anklet Set",
+    "vendor": "Palma Row",
+    "collection": "Jewelry",
+    "price": 32,
+    "sku": "BB-1029",
+    "image": "/images/products/tidepool-beaded-anklet-set/sky.jpg",
+    "hoverImage": "/images/products/tidepool-beaded-anklet-set/detail.jpg",
+    "colors": [
+      {
+        "name": "Sky",
+        "hex": "#C6D3DA",
+        "image": "/images/products/tidepool-beaded-anklet-set/sky.jpg"
+      },
+      {
+        "name": "Blush",
+        "hex": "#F2D2C8",
+        "image": "/images/products/tidepool-beaded-anklet-set/blush.jpg"
+      }
+    ],
+    "sizes": [],
+    "variants": [
+      {
+        "size": "",
+        "color": "Sky",
+        "initialStock": 6
+      },
+      {
+        "size": "",
+        "color": "Blush",
+        "initialStock": 4
+      }
+    ],
+    "tags": [
+      "jewelry",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier."
+  },
+  {
+    "id": "p31",
+    "handle": "cabana-stripe-one-piece",
+    "title": "Cabana Stripe One-Piece",
+    "vendor": "Saltgrass Co.",
+    "collection": "Swim",
+    "price": 88,
+    "sku": "BB-1030",
+    "image": "/images/products/cabana-stripe-one-piece/rose.jpg",
+    "hoverImage": "/images/products/cabana-stripe-one-piece/detail.jpg",
+    "colors": [
+      {
+        "name": "Rose",
+        "hex": "#CE8484",
+        "image": "/images/products/cabana-stripe-one-piece/rose.jpg"
+      },
+      {
+        "name": "Ivory",
+        "hex": "#FDFAF4",
+        "image": "/images/products/cabana-stripe-one-piece/ivory.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Rose",
+        "initialStock": 0
+      },
+      {
+        "size": "S",
+        "color": "Rose",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Rose",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Rose",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Rose",
+        "initialStock": 3
+      },
+      {
+        "size": "XS",
+        "color": "Ivory",
+        "initialStock": 0
+      },
+      {
+        "size": "S",
+        "color": "Ivory",
+        "initialStock": 3
+      },
+      {
+        "size": "M",
+        "color": "Ivory",
+        "initialStock": 2
+      },
+      {
+        "size": "L",
+        "color": "Ivory",
+        "initialStock": 1
+      },
+      {
+        "size": "XL",
+        "color": "Ivory",
+        "initialStock": 4
+      }
+    ],
+    "tags": [
+      "swim",
+      "new",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Moderate coverage. Runs true to size."
+  },
+  {
+    "id": "p32",
+    "handle": "sandbar-ribbed-bikini",
+    "title": "Sandbar Ribbed Bikini",
+    "vendor": "Saltgrass Co.",
+    "collection": "Swim",
+    "price": 74,
+    "sku": "BB-1031",
+    "image": "/images/products/sandbar-ribbed-bikini/terra.jpg",
+    "hoverImage": "/images/products/sandbar-ribbed-bikini/detail.jpg",
+    "colors": [
+      {
+        "name": "Terra",
+        "hex": "#C97B54",
+        "image": "/images/products/sandbar-ribbed-bikini/terra.jpg"
+      },
+      {
+        "name": "Cream",
+        "hex": "#FAF4E9",
+        "image": "/images/products/sandbar-ribbed-bikini/cream.jpg"
+      }
+    ],
+    "sizes": [
+      {
+        "label": "XS"
+      },
+      {
+        "label": "S"
+      },
+      {
+        "label": "M"
+      },
+      {
+        "label": "L"
+      },
+      {
+        "label": "XL"
+      }
+    ],
+    "variants": [
+      {
+        "size": "XS",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "S",
+        "color": "Terra",
+        "initialStock": 1
+      },
+      {
+        "size": "M",
+        "color": "Terra",
+        "initialStock": 4
+      },
+      {
+        "size": "L",
+        "color": "Terra",
+        "initialStock": 3
+      },
+      {
+        "size": "XL",
+        "color": "Terra",
+        "initialStock": 2
+      },
+      {
+        "size": "XS",
+        "color": "Cream",
+        "initialStock": 3
+      },
+      {
+        "size": "S",
+        "color": "Cream",
+        "initialStock": 2
+      },
+      {
+        "size": "M",
+        "color": "Cream",
+        "initialStock": 1
+      },
+      {
+        "size": "L",
+        "color": "Cream",
+        "initialStock": 4
+      },
+      {
+        "size": "XL",
+        "color": "Cream",
+        "initialStock": 3
+      }
+    ],
+    "tags": [
+      "swim",
+      "core",
+      "full-price"
+    ],
+    "blurb": "Hand-picked in Naples. Soft, easy and made to live in from brunch on Fifth to sunset on the pier.",
+    "fit": "Moderate coverage. Runs true to size."
+  }
+]
