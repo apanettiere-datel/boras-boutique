@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import Link from 'next/link'
 import {
   Breadcrumb,
   Eyebrow,
@@ -17,19 +18,26 @@ import {
   BotanicalDivider,
   Dialog,
 } from '@/components/ds'
+import { categorySlug } from '@/data/catalog'
 import { useCart } from '@/lib/cart'
+import { useVariantPicker } from '@/lib/use-variant-picker'
+
+// Sizes the measurement table below covers; other size systems (shoes) skip it
+const CHART_SIZES = new Set(['XS', 'S', 'M', 'L', 'XL'])
 
 function Gallery({ product, color }) {
   const active = product.colors.find((c) => c.name === color)
   const shots = [
-    (active && active.image) || product.image,
-    product.hoverImage,
-    product.image,
-    product.colors[1]?.image,
-  ].filter(Boolean)
+    ...new Set(
+      [
+        (active && active.image) || product.image,
+        product.hoverImage,
+        ...product.colors.map((c) => c.image),
+      ].filter(Boolean),
+    ),
+  ]
 
   const [i, setI] = useState(0)
-  useEffect(() => setI(0), [color])
 
   return (
     <div className="flex flex-col-reverse gap-3 sm:flex-row">
@@ -44,6 +52,7 @@ function Gallery({ product, color }) {
             ].join(' ')}
           >
             <img src={s} alt="" className="h-full w-full object-cover" />
+            <span className="sr-only">Show photo {n + 1}</span>
           </button>
         ))}
       </div>
@@ -66,21 +75,17 @@ function Gallery({ product, color }) {
   )
 }
 
-export function ProductView({ product, stock, related }) {
+export function ProductView({ product, related, initialColor, initialSize }) {
   const { addLine } = useCart()
-  const [color, setColor] = useState(product.colors[0]?.name)
-  const [size, setSize] = useState(null)
-  const [qty, setQty] = useState(1)
+  const picker = useVariantPicker(product, { initialColor, initialSize })
+  const { color, setColor, size, setSize, qty, setQty } = picker
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false)
-
-  const soldOut = stock <= 0
-  const lowStock = !soldOut && stock < 8
+  const showSizeGuide = product.sizes.some((s) => CHART_SIZES.has(s.label))
 
   function handleAddToBag() {
-    if (soldOut) return
-    if (product.sizes?.length && !size) return
+    if (!picker.canAdd) return
     addLine(product.handle, {
-      color,
+      color: color || null,
       size: size || null,
       qty,
     })
@@ -94,14 +99,15 @@ export function ProductView({ product, stock, related }) {
           { label: 'Home', href: '/' },
           {
             label: product.collection,
-            href: `/shop/${product.collection.toLowerCase().replace(/\s+/g, '-')}`,
+            href: `/shop/${categorySlug(product.collection)}`,
           },
           { label: product.title },
         ]}
       />
 
       <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-        <Gallery product={product} color={color} />
+        {/* keyed by color so the gallery starts from the first photo on a color change */}
+        <Gallery key={color} product={product} color={color} />
 
         <div className="flex flex-col gap-6 lg:sticky lg:top-24 lg:self-start">
           {/* Title + price */}
@@ -115,55 +121,61 @@ export function ProductView({ product, stock, related }) {
             </h1>
             <div className="flex items-center gap-4">
               <Price price={product.price} compareAt={product.compareAt} size="lg" />
-              {soldOut ? (
+              {picker.soldOut ? (
                 <span className="font-body text-[12px] font-bold uppercase tracking-eyebrow text-ink-500">
                   Sold out
                 </span>
-              ) : lowStock ? (
+              ) : picker.lowStockNote ? (
                 <span className="font-body text-[12px] font-bold uppercase tracking-eyebrow text-terracotta-700">
-                  Only {stock} left
+                  {picker.lowStockNote}
                 </span>
               ) : null}
             </div>
           </div>
 
           {/* Color */}
-          <SwatchPicker
-            showLabel
-            size="lg"
-            colors={product.colors}
-            value={color}
-            onChange={setColor}
-          />
+          {product.colors.length > 0 ? (
+            <SwatchPicker
+              showLabel
+              size="lg"
+              colors={product.colors}
+              value={color}
+              onChange={setColor}
+            />
+          ) : null}
 
           {/* Size */}
-          <div className="flex flex-col gap-2.5">
-            <div className="flex items-baseline justify-between">
-              <p className="font-body text-[11px] font-bold uppercase tracking-eyebrow text-ink-500">
-                Size
-              </p>
-              <button
-                type="button"
-                onClick={() => setSizeGuideOpen(true)}
-                className="cursor-pointer font-body text-[12.5px] text-rose-600 underline underline-offset-4 decoration-rose-300 hover:text-rose-800"
-              >
-                Sizing guide
-              </button>
+          {picker.hasSizes ? (
+            <div className="flex flex-col gap-2.5">
+              <div className="flex items-baseline justify-between">
+                <p className="font-body text-[11px] font-bold uppercase tracking-eyebrow text-ink-500">
+                  Size{size ? <span className="ml-2 normal-case tracking-normal text-ink-900">{size}</span> : null}
+                </p>
+                {showSizeGuide ? (
+                  <button
+                    type="button"
+                    onClick={() => setSizeGuideOpen(true)}
+                    className="cursor-pointer font-body text-[12.5px] text-rose-600 underline underline-offset-4 decoration-rose-300 hover:text-rose-800"
+                  >
+                    Sizing guide
+                  </button>
+                ) : null}
+              </div>
+              <SizePicker sizes={picker.sizes} value={size} onChange={setSize} />
             </div>
-            <SizePicker sizes={product.sizes} value={size} onChange={setSize} />
-          </div>
+          ) : null}
 
           {/* Qty + Add */}
           <div className="flex items-center gap-3">
-            <QuantityStepper value={qty} max={Math.max(stock, 1)} onChange={setQty} />
+            <QuantityStepper value={qty} max={picker.maxQty} onChange={setQty} />
             <Button
               variant="primary"
               size="lg"
               className="flex-1"
-              disabled={soldOut}
+              disabled={!picker.canAdd}
               onClick={handleAddToBag}
             >
-              {soldOut ? 'Sold out' : size ? 'Add to bag' : 'Select a size'}
+              {picker.label}
             </Button>
           </div>
 
@@ -183,29 +195,29 @@ export function ProductView({ product, stock, related }) {
             ))}
           </div>
 
-          {/* Accordions */}
+          {/* Accordions: fit and fabric only when the catalog has them for this piece */}
           <Accordion
             defaultOpen={0}
             items={[
               {
                 title: 'Description',
-                body:
-                  product.blurb +
-                  ' Lined bodice, adjustable straps, side pockets. SKU ' +
-                  product.sku +
-                  '.',
+                body: product.sku ? `${product.blurb} SKU ${product.sku}.` : product.blurb,
               },
-              {
-                title: 'Fit & sizing',
-                body: 'Relaxed through the body with a defined waist. Runs true to size. Size down if you\'re between and prefer a closer fit. Model is 5\'8" and wears a small.',
-              },
-              {
-                title: 'Fabric & care',
-                body: '100% cotton gauze. Machine wash cold on delicate, hang to dry, warm iron if you must.',
-              },
+              ...(product.fit ? [{ title: 'Fit & sizing', body: product.fit }] : []),
+              ...(product.fabricCare ? [{ title: 'Fabric & care', body: product.fabricCare }] : []),
               {
                 title: 'Shipping & returns',
-                body: 'Free US shipping over $75, $6 flat otherwise. Orders placed before 2PM ET ship the same day. Returns accepted within 30 days on unworn items with tags; sale items are final.',
+                body: (
+                  <>
+                    Free US shipping over $75, $6 flat otherwise. Orders ship from
+                    Naples within 1 to 2 business days. Returns accepted within 30
+                    days on unworn pieces with tags; sale pieces are final. See the{' '}
+                    <Link href="/returns" className="text-rose-600 underline underline-offset-2">
+                      returns policy
+                    </Link>
+                    .
+                  </>
+                ),
               },
             ]}
           />

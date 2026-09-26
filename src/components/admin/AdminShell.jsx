@@ -9,6 +9,7 @@ const NAV = [
   { href: '/admin/inventory', label: 'Inventory', icon: 'package' },
   { href: '/admin/orders', label: 'Orders', icon: 'truck' },
   { href: '/admin/products', label: 'Products', icon: 'tag' },
+  { href: '/admin/subscribers', label: 'Subscribers', icon: 'mail' },
 ]
 
 function NavLink({ href, label, icon, active, onClick }) {

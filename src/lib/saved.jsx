@@ -25,6 +25,8 @@ export function SavedProvider({ children }) {
       if (raw) {
         const stored = JSON.parse(raw)
         if (Array.isArray(stored)) {
+          // Read after mount so the first render matches the server's (empty)
+          // eslint-disable-next-line react-hooks/set-state-in-effect
           setHandles(stored.filter((h) => getProduct(h)))
         }
       }

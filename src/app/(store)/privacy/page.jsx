@@ -1,4 +1,5 @@
 import { Eyebrow } from '@/components/ds'
+import { EmailLink } from '@/components/site/Contact'
 
 export const metadata = {
   title: 'Privacy policy',
@@ -52,7 +53,7 @@ export default function PrivacyPage() {
         <section className="flex flex-col gap-3">
           <h2 className="font-display text-[22px] text-ink-900">Newsletter</h2>
           <p className="font-body text-[15px] leading-[1.65] text-ink-700">
-            If you subscribe to our newsletter we store your email address and send you occasional updates about new arrivals and in-store events. You can unsubscribe at any time using the link at the bottom of any newsletter email. When you unsubscribe your email is removed from our list.
+            If you subscribe to our newsletter we store your email address and the date you signed up, and send you occasional updates about new arrivals and in-store events. Every newsletter email has an unsubscribe link, or you can email us at <EmailLink /> and we will remove your address from our list.
           </p>
         </section>
 
@@ -74,12 +75,7 @@ export default function PrivacyPage() {
           <h2 className="font-display text-[22px] text-ink-900">Contact</h2>
           <p className="font-body text-[15px] leading-[1.65] text-ink-700">
             Questions about your data? Email us at{' '}
-            <a
-              href="mailto:[Contact email]"
-              className="text-rose-500 underline underline-offset-2 hover:text-rose-600"
-            >
-              [Contact email]
-            </a>
+            <EmailLink />
             .
           </p>
         </section>

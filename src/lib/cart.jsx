@@ -10,6 +10,7 @@ import {
 } from 'react'
 
 import { getProduct } from '@/data/catalog'
+import { lineProblem } from '@/lib/variants'
 
 const STORAGE_KEY = 'boras-bag'
 // Per-line cap, enforced here and by /api/checkout; UI steppers take it as max
@@ -19,6 +20,13 @@ const CartContext = createContext(null)
 
 export function lineKey({ handle, size, color }) {
   return [handle, size || '', color || ''].join('|')
+}
+
+// A line is kept only if it's a real variant of a product still in the
+// catalog: drops pieces that were removed, sizes/colors that no longer exist,
+// and sized pieces saved without a size.
+function isBuyable(line) {
+  return Boolean(line) && lineProblem(getProduct(line.handle), line) === null
 }
 
 export function CartProvider({ children }) {
@@ -34,7 +42,9 @@ export function CartProvider({ children }) {
       if (raw) {
         const stored = JSON.parse(raw)
         if (Array.isArray(stored)) {
-          setLines(stored.filter((l) => l && getProduct(l.handle)))
+          // Read after mount so the first render matches the server's (empty)
+          // eslint-disable-next-line react-hooks/set-state-in-effect
+          setLines(stored.filter(isBuyable))
         }
       }
     } catch {
@@ -53,7 +63,7 @@ export function CartProvider({ children }) {
   }, [lines, hydrated])
 
   const addLine = useCallback((handle, { size, color, qty = 1 } = {}) => {
-    if (!getProduct(handle)) return
+    if (!isBuyable({ handle, size, color })) return
     setLines((prev) => {
       const key = lineKey({ handle, size, color })
       const existing = prev.find((l) => lineKey(l) === key)

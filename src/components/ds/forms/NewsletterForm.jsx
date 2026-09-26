@@ -3,7 +3,9 @@ import React from "react";
 import { Button } from "../core/Button.jsx";
 import { Icon } from "../core/Icon.jsx";
 
-export function NewsletterForm({ onSubmit, compact, className = "" }) {
+// welcomeCode is the first-order promo code shown on success; nothing is
+// emailed to the subscriber, so the code has to be shown here.
+export function NewsletterForm({ onSubmit, compact, welcomeCode, className = "" }) {
   const [email, setEmail] = React.useState("");
   const [website, setWebsite] = React.useState("");
   const [busy, setBusy] = React.useState(false);
@@ -33,7 +35,8 @@ export function NewsletterForm({ onSubmit, compact, className = "" }) {
   };
   if (done) return (
     <p className={["flex items-center gap-2 font-body text-[15px] text-sage-700", className].join(" ")}>
-      <Icon name="check" size={18} /> You're on the list. Check your inbox for <strong className="font-bold">BORA10</strong>.
+      <Icon name="check" size={18} />
+      <span>You&rsquo;re on the list.{welcomeCode ? <> Use <strong className="font-bold">{welcomeCode}</strong> for 10% off your first order.</> : null}</span>
     </p>
   );
   return (

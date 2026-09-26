@@ -8,15 +8,21 @@ import { Button } from "../core/Button.jsx";
 import { IconButton } from "../core/IconButton.jsx";
 import { SwatchPicker } from "../forms/SwatchPicker.jsx";
 import { useSaved } from "@/lib/saved";
+import { stockOf } from "@/lib/variants";
 
 export function ProductCard({ product, onQuickView, onAddToCart, className = "" }) {
-  const { title, vendor, price, compareAt, badge, badgeTone, image, hoverImage, colors = [], soldOut, handle } = product;
+  const { title, vendor, price, compareAt, badge, badgeTone, image, hoverImage, colors = [], sizes = [], soldOut, handle } = product;
+  // A sized piece can't go in the bag from the card: the shopper has to pick a
+  // size first, in Quick View when the page offers it, else on the product page.
+  const needsSize = sizes.length > 0;
   const href = handle ? `/product/${handle}` : "#";
   const [hover, setHover] = React.useState(false);
   const { isSaved, toggleSaved } = useSaved();
   const saved = isSaved(handle);
   const [swatch, setSwatch] = React.useState(colors[0] ? colors[0].name : null);
   const active = colors.find((c) => c.name === swatch);
+  // One-size pieces add the chosen color straight from the card, so check it
+  const swatchSoldOut = !needsSize && stockOf(product, "", swatch || "") === 0;
   const base = (active && active.image) || image;
   const second = hoverImage || (colors[1] && colors[1].image) || image;
 
@@ -44,10 +50,16 @@ export function ProductCard({ product, onQuickView, onAddToCart, className = "" 
         <div className="absolute inset-x-3 bottom-3 flex gap-2 translate-y-2 opacity-0 transition-all duration-200 ease-boutique group-hover:translate-y-0 group-hover:opacity-100">
           {soldOut ? (
             <Button variant="secondary" size="sm" fullWidth disabled>Sold out</Button>
+          ) : needsSize ? (
+            onQuickView ? (
+              <Button variant="primary" size="sm" fullWidth onClick={() => onQuickView(product)}>Choose size</Button>
+            ) : (
+              <Button variant="primary" size="sm" fullWidth as={Link} href={href}>Choose size</Button>
+            )
           ) : (
             <>
-              <Button variant="secondary" size="sm" className="flex-1" onClick={() => onQuickView && onQuickView(product)}>Quick view</Button>
-              <Button variant="primary" size="sm" className="flex-1" onClick={() => onAddToCart && onAddToCart(product, swatch)}>Add</Button>
+              {onQuickView ? <Button variant="secondary" size="sm" className="flex-1" onClick={() => onQuickView(product)}>Quick view</Button> : null}
+              <Button variant="primary" size="sm" className="flex-1" disabled={swatchSoldOut} onClick={() => onAddToCart && onAddToCart(product, swatch)}>{swatchSoldOut ? "Sold out" : "Add"}</Button>
             </>
           )}
         </div>

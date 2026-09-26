@@ -11,7 +11,9 @@ export function Drawer({ open, onClose, title, side = "right", width = 420, foot
     return () => window.removeEventListener("keydown", h);
   }, [onClose]);
   return (
-    <div className={["absolute inset-0 z-50", open ? "" : "pointer-events-none"].join(" ")} aria-hidden={!open}>
+    // fixed, not absolute: the drawer belongs to the viewport, wherever the
+    // page is scrolled. inert while closed keeps focus out of the hidden panel.
+    <div className={["fixed inset-0 z-50", open ? "" : "pointer-events-none"].join(" ")} aria-hidden={!open} inert={!open}>
       <div onClick={onClose}
         className={["absolute inset-0 bg-ink-900/35 backdrop-blur-[2px] transition-opacity duration-300 ease-boutique", open ? "opacity-100" : "opacity-0"].join(" ")} />
       <aside role="dialog" aria-modal="true" aria-label={title} ref={panelRef} tabIndex={-1}

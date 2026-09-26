@@ -9,7 +9,7 @@ export function Logo({ size = "md", tone = "ink", stacked = false, className = "
   return (
     <span className={["inline-flex font-display leading-none select-none", color,
       stacked ? "flex-col items-center gap-1" : "items-baseline gap-2", className].join(" ")}>
-      <span style={{ fontSize: 26 * scale, fontStyle: "italic", fontWeight: 500, letterSpacing: "-0.02em" }}>Bora's</span>
+      <span style={{ fontSize: 26 * scale, fontStyle: "italic", fontWeight: 500, letterSpacing: "-0.02em" }}>Bora&rsquo;s</span>
       <span style={{ fontSize: 14 * scale, textTransform: "uppercase", letterSpacing: "0.28em", fontWeight: 400 }}>Boutique</span>
     </span>
   );

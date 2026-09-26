@@ -8,9 +8,11 @@ const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' https://images.unsplash.com data:",
+  "img-src 'self' data:",
   "font-src 'self' data:",
   "connect-src 'self'",
+  // Visit page map embed
+  "frame-src https://www.openstreetmap.org",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self' https://checkout.stripe.com",
@@ -27,9 +29,6 @@ const SECURITY_HEADERS = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [{ protocol: 'https', hostname: 'images.unsplash.com' }],
-  },
   async headers() {
     return [{ source: '/(.*)', headers: SECURITY_HEADERS }]
   },

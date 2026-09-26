@@ -13,12 +13,10 @@ import {
   Dialog,
   QuickView,
 } from '@/components/ds'
-import { products, collections, instagram, banner, story } from '@/data/catalog'
 import { useCart } from '@/lib/cart'
 
-const justIn = products.slice(0, 8)
-const strip = products.slice(12, 16)
-const moodCollections = collections.slice(2, 6)
+// The home page UI. page.jsx (a server component) picks the products and
+// attaches live stock, then hands everything in as props.
 
 // ------- sub-sections (plain, no cart needed) -------
 
@@ -35,7 +33,7 @@ function DropLine() {
   )
 }
 
-function StoryBlock() {
+function StoryBlock({ story }) {
   return (
     <section className="bg-sage-100">
       <div className="mx-auto grid w-full max-w-[1280px] items-center gap-10 px-5 py-16 lg:grid-cols-2 lg:px-10 lg:py-24">
@@ -66,20 +64,23 @@ function StoryBlock() {
   )
 }
 
-function InstagramStrip() {
+function InstagramStrip({ url, handle, images }) {
   return (
     <section className="mx-auto w-full max-w-[1280px] px-5 py-16 lg:px-10 lg:py-24">
       <SectionHeader
         align="center"
-        eyebrow="@borasboutique"
+        eyebrow={handle || 'Instagram'}
         title="Seen around Naples"
-        blurb="Tag us and we'll share it. Every shot below is shoppable."
+        blurb="Tag us and we'll share it."
       />
       <div className="grid grid-cols-3 gap-2 sm:gap-3 lg:grid-cols-6">
-        {instagram.map((src, i) => (
+        {images.map((src, i) => (
           <a
             key={i}
-            href="https://instagram.com/borasboutique"
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Instagram photo ${i + 1}`}
             className="group relative block overflow-hidden rounded-md bg-blush-200"
             style={{ aspectRatio: '1 / 1' }}
           >
@@ -89,7 +90,7 @@ function InstagramStrip() {
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-boutique group-hover:scale-105"
             />
             <span className="absolute inset-0 flex items-center justify-center bg-ink-900/0 text-cream-50 opacity-0 transition-all duration-200 group-hover:bg-ink-900/30 group-hover:opacity-100">
-              <Icon name="bag" size={20} />
+              <Icon name="instagram" size={20} />
             </span>
           </a>
         ))}
@@ -116,10 +117,11 @@ function NewsletterSignup() {
         body: JSON.stringify({ email }),
       })
       const data = await res.json()
+      if (!res.ok || !data.ok) throw new Error(data.message)
       setMessage(data.message || 'You’re on the list.')
       setStatus('done')
-    } catch {
-      setMessage('Something went wrong. Try again.')
+    } catch (error) {
+      setMessage(error.message || 'Something went wrong. Try again.')
       setStatus('error')
     }
   }
@@ -194,7 +196,7 @@ function SignupBlock() {
 
 // ------- main page -------
 
-export default function HomePage() {
+export function HomeView({ justIn, edit, moodCollections, banner, story, instagram }) {
   const { addLine } = useCart()
   const [quickView, setQuickView] = useState(null)
 
@@ -212,7 +214,9 @@ export default function HomePage() {
       <section className="relative">
         <div
           className="relative overflow-hidden bg-blush-200"
-          style={{ aspectRatio: '16 / 9', maxHeight: 620 }}
+          // Height, not aspect-ratio + max-height: that combination narrows the
+          // hero on wide screens and leaves no room for the headline on phones
+          style={{ height: 'clamp(420px, 56.25vw, 620px)' }}
         >
           <img src={banner} alt="" className="absolute inset-0 h-full w-full object-cover" />
           <span
@@ -291,31 +295,33 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Linen edit */}
-      <section className="bg-cream-50 py-16 lg:py-24">
-        <div className="mx-auto w-full max-w-[1280px] px-5 lg:px-10">
-          <SectionHeader
-            eyebrow="Curated"
-            title="The linen edit"
-            blurb="Everything breathable, in one place, for the stretch of the year when Naples stops being reasonable."
-            action="Shop the edit"
-            actionHref="/shop"
-          />
-          <div className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-5">
-            {strip.map((p) => (
-              <ProductCard
-                key={p.id}
-                product={p}
-                onQuickView={setQuickView}
-                onAddToCart={handleAddToCart}
-              />
-            ))}
+      {/* Linen edit: pieces tagged "linen" in the catalog */}
+      {edit.length > 0 ? (
+        <section className="bg-cream-50 py-16 lg:py-24">
+          <div className="mx-auto w-full max-w-[1280px] px-5 lg:px-10">
+            <SectionHeader
+              eyebrow="Curated"
+              title="The linen edit"
+              blurb="Everything breathable, in one place, for the stretch of the year when Naples stops being reasonable."
+              action="Shop the edit"
+              actionHref="/shop"
+            />
+            <div className="grid grid-cols-2 gap-x-4 gap-y-10 lg:grid-cols-4 lg:gap-x-5">
+              {edit.map((p) => (
+                <ProductCard
+                  key={p.id}
+                  product={p}
+                  onQuickView={setQuickView}
+                  onAddToCart={handleAddToCart}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
-      <StoryBlock />
-      <InstagramStrip />
+      <StoryBlock story={story} />
+      {instagram ? <InstagramStrip {...instagram} /> : null}
       <SignupBlock />
 
       {/* Quick View dialog */}

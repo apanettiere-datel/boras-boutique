@@ -12,7 +12,10 @@ export function Dialog({ open, onClose, title, size = "md", className = "", chil
   }, [onClose]);
   const maxW = { sm: 400, md: 640, lg: 900 }[size];
   return (
-    <div className={["absolute inset-0 z-50 flex items-center justify-center p-4", open ? "" : "pointer-events-none"].join(" ")} aria-hidden={!open}>
+    // fixed, not absolute: on a long page it must cover the viewport, not the
+    // middle of the document. inert while closed keeps focus (and autofocus)
+    // out of the hidden panel.
+    <div className={["fixed inset-0 z-50 flex items-center justify-center p-4", open ? "" : "pointer-events-none"].join(" ")} aria-hidden={!open} inert={!open}>
       <div onClick={onClose} className={["absolute inset-0 bg-ink-900/35 backdrop-blur-[2px] transition-opacity duration-300 ease-boutique", open ? "opacity-100" : "opacity-0"].join(" ")} />
       <div role="dialog" aria-modal="true" aria-label={title} ref={panelRef} tabIndex={-1} style={{ maxWidth: maxW }}
         className={["relative w-full max-h-full overflow-y-auto rounded-xl bg-blush-50 shadow-drawer transition-all duration-300 ease-boutique",

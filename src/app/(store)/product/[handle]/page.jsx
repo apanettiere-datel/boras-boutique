@@ -1,7 +1,9 @@
-import { getProduct, products } from '@/data/catalog'
-import { getStock } from '@/lib/inventory'
-import { SITE_URL } from '@/lib/site'
 import { notFound } from 'next/navigation'
+
+import { getProduct, products } from '@/data/catalog'
+import { withStock } from '@/lib/inventory'
+import { SITE_URL } from '@/lib/site'
+import { totalStock } from '@/lib/variants'
 import { ProductView } from './ProductView'
 
 export async function generateMetadata({ params }) {
@@ -20,27 +22,30 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function ProductPage({ params }) {
+function param(value) {
+  return typeof value === 'string' ? value : undefined
+}
+
+// ?color=Sage&size=M preselects a variant (the product feed links this way)
+export default async function ProductPage({ params, searchParams }) {
   const { handle } = await params
-  const product = getProduct(handle)
-  if (!product) notFound()
+  const query = await searchParams
+  const base = getProduct(handle)
+  if (!base) notFound()
 
-  // Live stock from D1; catalog number is the fallback when no DB is bound
-  const liveStock = await getStock(handle)
-  const stock = liveStock ?? (product.soldOut ? 0 : product.inventory)
-
-  // Related products: same collection, different handle, up to 4
-  const related = products
-    .filter((p) => p.handle !== handle && p.collection === product.collection)
+  // Related products: same category, different handle, up to 4
+  const relatedBase = products
+    .filter((p) => p.handle !== handle && p.collection === base.collection)
     .slice(0, 4)
+  const [product, ...related] = await withStock([base, ...relatedBase])
 
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     name: product.title,
     description: product.blurb,
-    image: [product.image],
-    sku: product.sku,
+    image: [new URL(product.image, SITE_URL).href],
+    ...(product.sku ? { sku: product.sku } : {}),
     brand: { '@type': 'Brand', name: product.vendor },
     offers: {
       '@type': 'Offer',
@@ -48,7 +53,7 @@ export default async function ProductPage({ params }) {
       priceCurrency: 'USD',
       price: product.price,
       availability:
-        stock > 0
+        totalStock(product) > 0
           ? 'https://schema.org/InStock'
           : 'https://schema.org/OutOfStock',
     },
@@ -58,9 +63,16 @@ export default async function ProductPage({ params }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        // Escape < so catalog text can never close the script tag
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
-      <ProductView product={product} stock={stock} related={related} />
+      <ProductView
+        key={product.handle}
+        product={product}
+        related={related}
+        initialColor={param(query?.color)}
+        initialSize={param(query?.size)}
+      />
     </>
   )
 }

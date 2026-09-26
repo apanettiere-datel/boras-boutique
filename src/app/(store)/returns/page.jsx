@@ -1,4 +1,6 @@
 import { Eyebrow } from '@/components/ds'
+import { EmailLink } from '@/components/site/Contact'
+import { fullAddress } from '@/data/business'
 
 export const metadata = {
   title: 'Returns and exchanges',
@@ -58,17 +60,12 @@ export default function ReturnsPage() {
           <h2 className="font-display text-[22px] text-ink-900">How to start a return</h2>
           <p className="font-body text-[15px] leading-[1.65] text-ink-700">
             Email us at{' '}
-            <a
-              href="mailto:[Contact email]"
-              className="text-rose-500 underline underline-offset-2 hover:text-rose-600"
-            >
-              [Contact email]
-            </a>{' '}
+            <EmailLink />{' '}
             with your order number and we will walk you through the next steps. Please allow one business day for a reply.
           </p>
           <p className="font-body text-[15px] leading-[1.65] text-ink-700">
             You can also bring an in-store or online purchase directly to the shop at{' '}
-            <span className="text-ink-900">[Shop street address], Naples, FL</span>.
+            <span className="text-ink-900">{fullAddress()}</span>.
           </p>
         </section>
 

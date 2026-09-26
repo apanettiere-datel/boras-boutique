@@ -1,4 +1,6 @@
 import { Eyebrow } from '@/components/ds'
+import { EmailLink, PhoneLink } from '@/components/site/Contact'
+import { business, fullAddress } from '@/data/business'
 
 export const metadata = {
   title: 'Terms of sale',
@@ -23,8 +25,8 @@ export default function TermsPage() {
           <h2 className="font-display text-[22px] text-ink-900">Who we are</h2>
           <p className="font-body text-[15px] leading-[1.65] text-ink-700">
             This site is operated by{' '}
-            <span className="text-ink-900">[Business legal name]</span>, doing business as Bora&apos;s Boutique, located at{' '}
-            <span className="text-ink-900">[Shop street address], Naples, FL</span>. By placing an order you agree to these terms.
+            <span className="text-ink-900">{business.legalName}</span>, doing business as {business.name}, located at{' '}
+            <span className="text-ink-900">{fullAddress()}</span>. By placing an order you agree to these terms.
           </p>
         </section>
 
@@ -74,13 +76,8 @@ export default function TermsPage() {
           <h2 className="font-display text-[22px] text-ink-900">Questions</h2>
           <p className="font-body text-[15px] leading-[1.65] text-ink-700">
             Email us at{' '}
-            <a
-              href="mailto:[Contact email]"
-              className="text-rose-500 underline underline-offset-2 hover:text-rose-600"
-            >
-              [Contact email]
-            </a>{' '}
-            or call us at <span className="text-ink-900">[Phone]</span>.
+            <EmailLink />{' '}
+            or call us at <PhoneLink />.
           </p>
         </section>
 

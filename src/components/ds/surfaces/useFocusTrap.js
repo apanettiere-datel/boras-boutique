@@ -4,7 +4,8 @@ import React from "react";
 const FOCUSABLE =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-// Keyboard containment for Drawer/Dialog: on open, move focus into the panel;
+// Keyboard containment for Drawer/Dialog: on open, move focus into the panel
+// (to the element marked data-autofocus if there is one, else the first control);
 // Tab cycles within it; on close, restore focus to the element that opened it.
 export function useFocusTrap(open) {
   const panelRef = React.useRef(null);
@@ -14,7 +15,7 @@ export function useFocusTrap(open) {
     const panel = panelRef.current;
     const previouslyFocused = document.activeElement;
 
-    const first = panel.querySelector(FOCUSABLE);
+    const first = panel.querySelector("[data-autofocus]") || panel.querySelector(FOCUSABLE);
     ;(first || panel).focus();
 
     const onKeyDown = (e) => {

@@ -6,19 +6,74 @@ import {
   BotanicalDivider,
   Accordion,
 } from '@/components/ds'
+import { EmailLink, PhoneLink } from '@/components/site/Contact'
+import { siteImages } from '@/data/catalog'
+import { business, filled, isPlaceholder } from '@/data/business'
+import { SITE_URL } from '@/lib/site'
 
 export const metadata = { title: 'Visit us' }
 
+// A small bounding box around the pin for the OpenStreetMap embed
+function mapSrc(lat, lng) {
+  const d = 0.006
+  const bbox = [lng - d, lat - d / 2, lng + d, lat + d / 2].map((n) => n.toFixed(5)).join('%2C')
+  return `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lng}`
+}
+
+// schema.org ClothingStore for search results, only once the details are real
+function storeJsonLd() {
+  const b = business
+  if ([b.streetAddress, b.postalCode, b.phone].some(isPlaceholder)) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ClothingStore',
+    name: b.name,
+    url: SITE_URL,
+    telephone: b.phone,
+    ...(filled(b.email) ? { email: b.email } : {}),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: b.streetAddress,
+      addressLocality: b.city,
+      addressRegion: b.region,
+      postalCode: b.postalCode,
+      addressCountry: 'US',
+    },
+    ...(b.latitude != null && b.longitude != null
+      ? { geo: { '@type': 'GeoCoordinates', latitude: b.latitude, longitude: b.longitude } }
+      : {}),
+    ...(filled(b.instagramUrl) ? { sameAs: [b.instagramUrl] } : {}),
+  }
+}
+
 export default function VisitPage() {
+  const b = business
+  const hasMap = b.latitude != null && b.longitude != null
+  const jsonLd = storeJsonLd()
+
+  const contactRows = [
+    ['mapPin', b.streetAddress, `${b.city}, ${b.region} ${b.postalCode}`],
+    ['phone', <PhoneLink key="p" className="hover:text-rose-600" />, b.phoneNote],
+    ['mail', <EmailLink key="e" className="hover:text-rose-600" />, b.emailNote],
+  ]
+
   return (
     <div>
+      {jsonLd ? (
+        <script
+          type="application/ld+json"
+          // Escape < so catalog text can never close the script tag
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+        />
+      ) : null}
+
       {/* Hero */}
       <div
         className="relative overflow-hidden bg-blush-200"
         style={{ aspectRatio: '16 / 6' }}
       >
         <img
-          src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1600&q=70&auto=format&fit=crop"
+          src={siteImages.visit}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -30,7 +85,9 @@ export default function VisitPage() {
           }}
         />
         <div className="absolute inset-x-0 bottom-0 mx-auto w-full max-w-[1280px] px-5 pb-8 lg:px-10">
-          <Eyebrow tone="inverse">Naples, Florida</Eyebrow>
+          <Eyebrow tone="inverse">
+            {b.city}, Florida
+          </Eyebrow>
           <h1
             className="mt-2 font-display font-medium text-cream-50"
             style={{ fontSize: 'var(--display-lg)' }}
@@ -41,44 +98,39 @@ export default function VisitPage() {
       </div>
 
       {/* Info + map */}
-      <div className="mx-auto grid w-full max-w-[1280px] gap-10 px-5 py-16 lg:grid-cols-[1fr_1fr] lg:px-10">
+      <div
+        className={[
+          'mx-auto grid w-full max-w-[1280px] gap-10 px-5 py-16 lg:px-10',
+          hasMap ? 'lg:grid-cols-[1fr_1fr]' : '',
+        ].join(' ')}
+      >
         <div className="flex flex-col gap-6">
           <p className="max-w-[46ch] font-body text-[17px] leading-[1.7] text-ink-700">
-            We&apos;re the little pink storefront halfway down Fifth Avenue South,
-            between the bookshop and the gelato place. Pop in, everything online is
-            on the racks, and Bora is usually there.
+            {b.directions} Pop in: everything online is on the racks, and Bora is
+            usually there.
           </p>
           <div className="flex flex-col gap-4">
-            {[
-              ['mapPin', '812 Fifth Avenue South', 'Naples, FL 34102'],
-              ['phone', '(239) 555-0188', 'Text us, we answer faster'],
-              ['mail', 'hello@borasboutique.com', 'We reply within a day'],
-            ].map(([ic, a, b]) => (
-              <div key={a} className="flex gap-3">
+            {contactRows.map(([ic, a, note]) => (
+              <div key={ic} className="flex gap-3">
                 <span className="mt-0.5 text-rose-500">
                   <Icon name={ic} size={19} />
                 </span>
                 <div>
                   <p className="font-body text-[15px] font-semibold text-ink-900">{a}</p>
-                  <p className="font-body text-[13px] text-ink-500">{b}</p>
+                  <p className="font-body text-[13px] text-ink-500">{note}</p>
                 </div>
               </div>
             ))}
           </div>
-          <Card tone="cream" padding="md">
+          <Card tone="cream" padding="md" className="max-w-[420px]">
             <p className="mb-3 font-body text-[11px] font-bold uppercase tracking-eyebrow text-ink-900">
               Hours
             </p>
             <dl className="flex flex-col gap-1.5 font-body text-[14px]">
-              {[
-                ['Mon – Thu', '10AM – 6PM'],
-                ['Friday', '10AM – 8PM'],
-                ['Saturday', '10AM – 8PM'],
-                ['Sunday', '11AM – 5PM'],
-              ].map(([d, h]) => (
+              {b.hours.map(([d, h]) => (
                 <div
                   key={d}
-                  className="flex justify-between border-b border-line-soft pb-1.5 last:border-0"
+                  className="flex justify-between gap-4 border-b border-line-soft pb-1.5 last:border-0"
                 >
                   <dt className="text-ink-500">{d}</dt>
                   <dd className="text-ink-900">{h}</dd>
@@ -88,14 +140,16 @@ export default function VisitPage() {
           </Card>
         </div>
 
-        <div className="min-h-[380px] overflow-hidden rounded-lg border border-line-medium bg-sage-100">
-          <iframe
-            title="Map to Bora's Boutique"
-            className="h-full min-h-[380px] w-full border-0"
-            loading="lazy"
-            src="https://www.openstreetmap.org/export/embed.html?bbox=-81.800%2C26.135%2C-81.780%2C26.148&layer=mapnik&marker=26.1417%2C-81.7900"
-          />
-        </div>
+        {hasMap ? (
+          <div className="min-h-[380px] overflow-hidden rounded-lg border border-line-medium bg-sage-100">
+            <iframe
+              title={`Map to ${b.name}`}
+              className="h-full min-h-[380px] w-full border-0"
+              loading="lazy"
+              src={mapSrc(b.latitude, b.longitude)}
+            />
+          </div>
+        ) : null}
       </div>
 
       <div className="mx-auto max-w-[880px] px-5">
@@ -117,15 +171,15 @@ export default function VisitPage() {
             },
             {
               title: 'Can I return an online order in store?',
-              body: 'Yes. Bring the item unworn with tags within 30 days and we\'ll refund the original payment method.',
+              body: "Yes. Bring the piece unworn with tags within 30 days and we'll refund the original payment method. Sale pieces are final.",
             },
             {
               title: 'Do you restock sold-out sizes?',
-              body: "Sometimes. Runs are small, so tap 'Back in stock' on the product page and we'll email you first.",
+              body: 'Sometimes. Runs are small, so join the newsletter: restocks go out there first.',
             },
             {
               title: 'Is there parking?',
-              body: 'Free two-hour street parking on Fifth, and the 8th Street garage is a two-minute walk.',
+              body: b.parking,
             },
           ]}
         />

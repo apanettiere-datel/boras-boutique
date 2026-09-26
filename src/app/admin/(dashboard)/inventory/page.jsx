@@ -1,4 +1,3 @@
-import { Card } from '@/components/ds'
 import { getInventoryRows } from '@/lib/store-data'
 import { InventoryTable } from './InventoryTable'
 import { SetupCard } from '@/components/admin/ui'

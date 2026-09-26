@@ -19,57 +19,25 @@ import { useCart } from '@/lib/cart'
 
 const PAGE_SIZE = 12
 
-const FACETS = [
-  {
-    title: 'Category',
-    // counts are computed from the live product set in CollectionView
-    options: [
-      { label: 'Dresses' },
-      { label: 'Tops' },
-      { label: 'Bottoms' },
-      { label: 'Matching Sets' },
-      { label: 'Outerwear' },
-      { label: 'Shoes' },
-      { label: 'Jewelry' },
-      { label: 'Swim' },
-    ],
-  },
-  {
-    title: 'Size',
-    options: [
-      { label: 'XS' },
-      { label: 'S' },
-      { label: 'M' },
-      { label: 'L' },
-      { label: 'XL' },
-    ],
-  },
-  {
-    title: 'Color',
-    swatches: true,
-    options: [
-      { label: 'Blush', hex: '#F2D2C8' },
-      { label: 'Sage', hex: '#C2CDB8' },
-      { label: 'Cream', hex: '#FAF4E9' },
-      { label: 'Terracotta', hex: '#C97B54' },
-      { label: 'Rose', hex: '#CE8484' },
-      { label: 'Sand', hex: '#E2D2BE' },
-    ],
-  },
-  {
-    title: 'Price',
-    options: ['Under $50', '$50 – $80', '$80 – $120', 'Over $120'],
-  },
-  {
-    title: 'Brand',
-    options: [
-      { label: "Bora's House Label" },
-      { label: 'Saltgrass Co.' },
-      { label: 'Dune & Dust' },
-      { label: 'Palma Row' },
-    ],
-  },
-]
+const PRICE_OPTIONS = ['Under $50', '$50 – $80', '$80 – $120', 'Over $120']
+
+const unique = (values) => [...new Set(values.filter(Boolean))]
+
+// Filter groups come from the products on the page, so the options always
+// match the catalog (new categories, vendors, colors and shoe sizes included).
+function buildFacets(products) {
+  const colors = new Map()
+  for (const p of products) {
+    for (const c of p.colors || []) if (!colors.has(c.name)) colors.set(c.name, c.hex)
+  }
+  return [
+    { title: 'Category', options: unique(products.map((p) => p.collection)).map((label) => ({ label })) },
+    { title: 'Size', options: unique(products.flatMap((p) => (p.sizes || []).map((s) => s.label))).map((label) => ({ label })) },
+    { title: 'Color', swatches: true, options: [...colors].map(([label, hex]) => ({ label, hex })) },
+    { title: 'Price', options: PRICE_OPTIONS },
+    { title: 'Brand', options: unique(products.map((p) => p.vendor)).map((label) => ({ label })) },
+  ].filter((f) => f.options.length > 1)
+}
 
 const PRICE_TESTS = {
   'Under $50': (p) => p.price < 50,
@@ -89,8 +57,8 @@ const GROUP_TESTS = {
 const optionLabel = (o) => (typeof o === 'string' ? o : o.label)
 
 // OR within a facet group, AND across groups
-function matchesFilters(product, selected) {
-  return FACETS.every((facet) => {
+function matchesFilters(product, selected, facets) {
+  return facets.every((facet) => {
     const active = facet.options
       .map(optionLabel)
       .filter((l) => selected.includes(l))
@@ -100,7 +68,7 @@ function matchesFilters(product, selected) {
   })
 }
 
-// Seed ids are p1..p32; newest = highest number
+// Ids follow spreadsheet order (p1, p2, ...): rows further down are newer
 const idNum = (id) => Number(String(id).replace(/\D/g, '')) || 0
 
 function FacetMenu({ facet, open, onOpen, selected, onToggle }) {
@@ -198,7 +166,7 @@ export function CollectionView({ collection, allProducts }) {
   // Facet option counts computed from the actual products on this page
   const facets = useMemo(
     () =>
-      FACETS.map((f) => ({
+      buildFacets(allProducts).map((f) => ({
         ...f,
         options: f.options.map((o) => {
           if (typeof o === 'string' || f.swatches) return o
@@ -212,7 +180,7 @@ export function CollectionView({ collection, allProducts }) {
     [allProducts],
   )
 
-  const filtered = allProducts.filter((p) => matchesFilters(p, selected))
+  const filtered = allProducts.filter((p) => matchesFilters(p, selected, facets))
 
   // Client-side sort
   const sorted = [...filtered].sort((a, b) => {
@@ -254,7 +222,7 @@ export function CollectionView({ collection, allProducts }) {
       {/* Collection hero banner */}
       <div
         className="relative overflow-hidden bg-blush-200"
-        style={{ aspectRatio: '16 / 5', maxHeight: 340 }}
+        style={{ height: 'clamp(220px, 31.25vw, 340px)' }}
       >
         <img
           src={collection.image}

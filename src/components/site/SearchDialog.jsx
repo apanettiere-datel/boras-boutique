@@ -39,8 +39,10 @@ export function SearchDialog({ open, onClose }) {
       <div className="p-6">
         <div className="flex items-center gap-3 border-b border-line-medium pb-4">
           <Icon name="search" size={18} className="text-ink-500" />
+          {/* Focused when the dialog opens (useFocusTrap), not on page load */}
           <input
-            autoFocus
+            data-autofocus
+            aria-label="Search"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search pieces, brands, collections"

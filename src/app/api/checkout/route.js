@@ -2,14 +2,20 @@ import { NextResponse } from 'next/server'
 import Stripe from 'stripe'
 
 import { getProduct } from '@/data/catalog'
-import { getStockMap } from '@/lib/inventory'
+import { getVariantStockMap } from '@/lib/inventory'
 import { encodeOrderItems } from '@/lib/order-metadata'
+import { aggregateLines, lineProblem, variantKey, variantLabel } from '@/lib/variants'
 
 const MAX_LINES = 50
 const MAX_QTY = 20
 // Free shipping at $75, else flat $6; must stay in sync with FREE_AT in the cart UI.
 const FREE_SHIPPING_CENTS = 7500
 const FLAT_SHIPPING_CENTS = 600
+// Stock is checked here and taken when payment completes, so a session that
+// sits open is a window for two shoppers to buy the last piece. Stripe's
+// default is 24 hours; its minimum is 30 minutes (plus a minute of slack for
+// clock skew). Oversells that still slip through are caught by the webhook.
+const SESSION_TTL_SECONDS = 31 * 60
 
 function getStripe() {
   const key = process.env.STRIPE_SECRET_KEY
@@ -17,49 +23,75 @@ function getStripe() {
   return new Stripe(key, { httpClient: Stripe.createFetchHttpClient() })
 }
 
+function reject(message, status = 400) {
+  return NextResponse.json({ ok: false, message }, { status })
+}
+
+function text(value) {
+  return typeof value === 'string' ? value.trim() : ''
+}
+
 export async function POST(request) {
   try {
     const body = await request.json().catch(() => null)
     const items = body?.items
     if (!Array.isArray(items) || items.length === 0 || items.length > MAX_LINES) {
-      return NextResponse.json(
-        { ok: false, message: 'Your bag looks empty or invalid.' },
-        { status: 400 },
-      )
+      return reject('Your bag looks empty or invalid.')
     }
 
-    const lineItems = []
+    // Validate every line against the catalog; the client only sends
+    // {handle, size, color, qty}, never prices.
+    const lines = []
     for (const item of items) {
       const product = getProduct(item?.handle)
       const qty = Number(item?.qty)
       if (!product || !Number.isInteger(qty) || qty < 1 || qty > MAX_QTY) {
-        return NextResponse.json(
-          { ok: false, message: 'Something in your bag is no longer available.' },
-          { status: 400 },
-        )
+        return reject('Something in your bag is no longer available.')
       }
       // Catalog prices are integer dollars; refuse anything else rather than
       // doing float math on money.
       if (!Number.isInteger(product.price)) {
         console.error('Non-integer catalog price', { handle: product.handle })
-        return NextResponse.json(
-          { ok: false, message: 'Checkout is unavailable right now. Please try again.' },
-          { status: 500 },
-        )
+        return reject('Checkout is unavailable right now. Please try again.', 500)
       }
-      // Only sell variants the product actually has
-      const size = typeof item.size === 'string' && item.size.trim() ? item.size : null
-      const color = typeof item.color === 'string' && item.color.trim() ? item.color : null
-      const sizeOk = !size || (product.sizes || []).some((s) => s.label === size && !s.soldOut)
-      const colorOk = !color || (product.colors || []).some((c) => c.name === color)
-      if (!sizeOk || !colorOk) {
-        return NextResponse.json(
-          { ok: false, message: 'Something in your bag is no longer available.' },
-          { status: 400 },
-        )
+      const size = text(item.size)
+      const color = text(item.color)
+      const problem = lineProblem(product, { size, color })
+      if (problem === 'needs-size') return reject(`Choose a size for ${product.title}.`)
+      if (problem === 'needs-color') return reject(`Choose a color for ${product.title}.`)
+      if (problem) return reject('Something in your bag is no longer available.')
+      lines.push({ product, handle: product.handle, size, color, qty })
+    }
+
+    // Live stock check per size/color. Skipped when no DB is bound.
+    const wanted = aggregateLines(lines)
+    const stockMap = await getVariantStockMap([...new Set(wanted.map((l) => l.handle))])
+    if (stockMap) {
+      for (const l of wanted) {
+        const stock = stockMap.get(l.handle)?.[variantKey(l.size, l.color)] ?? 0
+        if (l.qty > stock) {
+          const product = getProduct(l.handle)
+          const variant = variantLabel(l.size, l.color)
+          const name = variant ? `${product.title} (${variant})` : product.title
+          return reject(
+            stock === 0 ? `${name} just sold out.` : `Only ${stock} of ${name} left.`,
+            409,
+          )
+        }
       }
-      const variant = [size, color].filter(Boolean).join(' / ')
-      lineItems.push({
+    }
+
+    const stripe = getStripe()
+    if (!stripe) return reject('Checkout is not configured yet. Add STRIPE_SECRET_KEY.', 503)
+
+    // Never derive redirect URLs from the Origin header (attacker-controlled);
+    // SITE_URL wins, else the URL this Worker was actually reached on.
+    const origin = process.env.SITE_URL || new URL(request.url).origin
+
+    const lineItems = lines.map(({ product, size, color, qty }) => {
+      const variant = variantLabel(size, color)
+      const image = (color && product.colors.find((c) => c.name === color)?.image) || product.image
+      return {
         quantity: qty,
         price_data: {
           currency: 'usd',
@@ -70,50 +102,13 @@ export async function POST(request) {
           product_data: {
             name: product.title,
             ...(variant ? { description: variant } : {}),
-            ...(product.image ? { images: [product.image] } : {}),
-            metadata: { handle: product.handle, sku: product.sku || '' },
+            // Stripe needs absolute URLs; catalog images are site paths
+            ...(image ? { images: [new URL(image, origin).href] } : {}),
+            metadata: { handle: product.handle, sku: product.sku || '', size, color },
           },
         },
-      })
-    }
-
-    // Live stock check: total requested qty per handle (across size/color
-    // lines) must fit current inventory. Skipped when no DB is bound.
-    const wanted = new Map()
-    for (const item of items) {
-      wanted.set(item.handle, (wanted.get(item.handle) || 0) + Number(item.qty))
-    }
-    const stockMap = await getStockMap([...wanted.keys()])
-    if (stockMap) {
-      for (const [handle, qty] of wanted) {
-        const stock = stockMap.get(handle) ?? 0
-        if (qty > stock) {
-          const product = getProduct(handle)
-          return NextResponse.json(
-            {
-              ok: false,
-              message:
-                stock === 0
-                  ? `${product.title} just sold out.`
-                  : `Only ${stock} of ${product.title} left.`,
-            },
-            { status: 409 },
-          )
-        }
       }
-    }
-
-    const stripe = getStripe()
-    if (!stripe) {
-      return NextResponse.json(
-        { ok: false, message: 'Checkout is not configured yet. Add STRIPE_SECRET_KEY.' },
-        { status: 503 },
-      )
-    }
-
-    // Never derive redirect URLs from the Origin header (attacker-controlled);
-    // SITE_URL wins, else the URL this Worker was actually reached on.
-    const origin = process.env.SITE_URL || new URL(request.url).origin
+    })
 
     const subtotalCents = lineItems.reduce(
       (sum, li) => sum + li.price_data.unit_amount * li.quantity,
@@ -125,9 +120,8 @@ export async function POST(request) {
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
       line_items: lineItems,
-      metadata: encodeOrderItems(
-        items.map((i) => ({ handle: i.handle, qty: Number(i.qty) })),
-      ),
+      metadata: encodeOrderItems(wanted),
+      expires_at: Math.floor(Date.now() / 1000) + SESSION_TTL_SECONDS,
       // Requires Stripe Tax enabled in the dashboard (see README)
       automatic_tax: { enabled: true },
       allow_promotion_codes: true,
@@ -149,9 +143,6 @@ export async function POST(request) {
     return NextResponse.json({ ok: true, url: session.url })
   } catch (error) {
     console.error('Checkout session error', error)
-    return NextResponse.json(
-      { ok: false, message: 'Checkout is unavailable right now. Please try again.' },
-      { status: 500 },
-    )
+    return reject('Checkout is unavailable right now. Please try again.', 500)
   }
 }

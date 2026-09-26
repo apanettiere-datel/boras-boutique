@@ -17,6 +17,8 @@ import {
 } from '@/components/ds'
 import { MAX_QTY, useCart } from '@/lib/cart'
 import { SearchDialog } from '@/components/site/SearchDialog'
+import { categories, categorySlug, siteImages } from '@/data/catalog'
+import { business, filled, fullAddress } from '@/data/business'
 
 const FREE_AT = 75
 
@@ -28,23 +30,28 @@ const NAV_MAP = {
   collection: '/shop',
 }
 
+// Category links come from the catalog, so a new category in the spreadsheet
+// shows up in the menus without a code change.
+const SHOP_LINKS = categories.map((c) => ({ label: c, href: `/shop/${categorySlug(c)}` }))
+
 const MOBILE_NAV_ITEMS = [
   { label: 'New Arrivals', href: '/shop/new' },
-  { label: 'Dresses', href: '/shop/dresses' },
-  { label: 'Tops', href: '/shop/tops' },
-  { label: 'Bottoms', href: '/shop/bottoms' },
-  { label: 'Matching Sets', href: '/shop/matching-sets' },
-  { label: 'Outerwear', href: '/shop/outerwear' },
-  { label: 'Shoes', href: '/shop/shoes' },
-  { label: 'Accessories', href: '/shop/accessories' },
-  { label: 'Jewelry', href: '/shop/jewelry' },
-  { label: 'Swim', href: '/shop/swim' },
+  ...SHOP_LINKS,
   { label: 'Sale', href: '/shop/sale' },
 ]
 
-const SHOP_LINKS = MOBILE_NAV_ITEMS.filter(
-  (item) => !['New Arrivals', 'Sale'].includes(item.label),
-)
+const FOOTER_SHOP_LINKS = [
+  { label: 'Shop all', href: '/shop' },
+  { label: 'New arrivals', href: '/shop/new' },
+  ...SHOP_LINKS.slice(0, 3),
+  { label: 'Sale', href: '/shop/sale' },
+]
+
+const ANNOUNCEMENTS = [
+  'Free shipping on orders over $75',
+  'New arrivals every Tuesday at 11AM',
+  ...(business.welcomeCode ? [`10% off your first order with code ${business.welcomeCode}`] : []),
+]
 
 function MobileNav({ open, onClose }) {
   return (
@@ -108,19 +115,14 @@ export function SiteShell({ children }) {
       >
         Skip to content
       </a>
-      <AnnouncementBar
-        messages={[
-          'Free shipping on orders over $75',
-          'New arrivals every Tuesday at 11AM',
-          '10% off your first order with code BORA10',
-        ]}
-      />
+      <AnnouncementBar messages={ANNOUNCEMENTS} />
 
       <SiteHeader
         cartCount={hydrated ? count : 0}
         onCart={openCart}
         onMenu={() => setMenuOpen(true)}
         featured={{ label: 'Spring Break Shop', href: '/shop/spring-break' }}
+        featuredImage={siteImages.menu}
         shopLinks={SHOP_LINKS}
         onNav={handleNav}
         onSearch={() => setSearchOpen(true)}
@@ -128,7 +130,14 @@ export function SiteShell({ children }) {
 
       <main id="main">{children}</main>
 
-      <SiteFooter />
+      <SiteFooter
+        shopLinks={FOOTER_SHOP_LINKS}
+        name={business.name}
+        address={fullAddress()}
+        instagramUrl={filled(business.instagramUrl)}
+        email={filled(business.email)}
+        welcomeCode={business.welcomeCode}
+      />
 
       {/* Cart drawer */}
       <Drawer

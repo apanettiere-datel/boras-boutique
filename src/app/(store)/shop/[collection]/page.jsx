@@ -1,14 +1,13 @@
 import { notFound } from 'next/navigation'
 
-import { products, getCollection } from '@/data/catalog'
+import { products, getCollection, categorySlug } from '@/data/catalog'
+import { withStock } from '@/lib/inventory'
 import { CollectionView } from '../CollectionView'
 
 // /shop/[slug] resolves both taxonomies: curated collections from the
 // catalog's collections list (new, sale, spring-break...) and product
 // categories from product.collection (tops, bottoms, matching-sets...).
-function slugify(value) {
-  return value.toLowerCase().replace(/\s+/g, '-')
-}
+const slugify = categorySlug
 
 function resolve(slug) {
   const curated = getCollection(slug)
@@ -53,7 +52,7 @@ export default async function CollectionPage({ params }) {
   return (
     <CollectionView
       collection={resolved.collection}
-      allProducts={resolved.products}
+      allProducts={await withStock(resolved.products)}
     />
   )
 }
