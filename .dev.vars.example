@@ -3,6 +3,8 @@
 # Stripe (test keys from dashboard.stripe.com/test/apikeys)
 STRIPE_SECRET_KEY=sk_test_xxx
 # From `stripe listen --forward-to localhost:3000/api/stripe-webhook` or the dashboard webhook endpoint
+# (events: checkout.session.completed, checkout.session.async_payment_succeeded,
+# checkout.session.async_payment_failed)
 STRIPE_WEBHOOK_SECRET=whsec_xxx
 
 # Canonical site URL used for Stripe redirect URLs in production
@@ -15,5 +17,6 @@ ADMIN_PASSWORD=
 RESEND_API_KEY=
 NEWSLETTER_FROM_EMAIL=shop@borasboutique.com
 NEWSLETTER_TO_EMAIL=bora@borasboutique.com
-# Where ops alerts go (webhook failures); falls back to NEWSLETTER_TO_EMAIL
+# Where ops alerts go (oversold orders, orders paid but not recorded); falls
+# back to NEWSLETTER_TO_EMAIL. Uses the Resend settings above.
 ALERT_TO_EMAIL=
